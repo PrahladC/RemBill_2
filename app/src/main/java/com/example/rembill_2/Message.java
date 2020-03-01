@@ -4,7 +4,7 @@ import android.widget.Toast;
 
 public class Message {
 
-    private   MainActivity MA;
+/*    private   MainActivity MA;
     void SetMA(MainActivity MA){this.MA=MA;}
     public Object msg;
 
@@ -19,6 +19,14 @@ public class Message {
             Toast.makeText(MA.getApplicationContext(), msg,Toast.LENGTH_SHORT).show();
 
         }
+*/
+
+    private static  MainActivity MA;
+    void SetMA(MainActivity MA){this.MA=MA;}
+    public void show(String msg){
+        Toast.makeText(MA.getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+
+    }
 
     }
 

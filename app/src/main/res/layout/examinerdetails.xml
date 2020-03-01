@@ -15,7 +15,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="275dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -28,7 +28,9 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textSize="20dp"
-            android:textColor="#9e0000" />
+            android:textColor="#9e0000"
+            android:text="0000"
+            android:visibility="invisible" />
 
 
     <EditText
@@ -42,7 +44,7 @@
         android:paddingTop="10dp"
         android:paddingLeft="10dp"
         android:layout_margin="3dp"
-        android:hint="Name of the Examiner"/>
+        android:hint="Name of the Examiner" />
 
 
      <EditText
@@ -118,13 +120,22 @@
         android:layout_marginRight="5dp"
         android:text=" Save " />
 
-                <Button
+ <!--               <Button
                     android:id="@+id/LoadexaminerDetails"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="5dp"
                     android:text=" Load " />
+-->
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text=" Cancel " />
+
 
 
        </LinearLayout>

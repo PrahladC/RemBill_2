@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="275dp"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -28,7 +28,9 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:textSize="20dp"
-        android:textColor="#9e0000" />
+        android:textColor="#9e0000"
+        android:text="0000"
+        android:visibility="invisible" />
 
     <EditText
         android:id="@+id/ExamYear"
@@ -124,12 +126,30 @@
 
 
     <Button
-        android:id="@+id/closeButton"
+        android:id="@+id/submitButton"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:text=" Submit " />
+
+<!--            <Button
+                android:id="@+id/LoadexamDetails"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:text=" Load " />
+-->
+            <Button
+                android:id="@+id/cancelExamDetails"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:text=" Cancel " />
+
+
 
         </LinearLayout>
 

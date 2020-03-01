@@ -44,218 +44,13 @@
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/internal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="11"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="75dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:text="Internal Examiner Details"
-            android:textColor="#00009e"
-            android:background="@drawable/round_corners"
-            android:textSize="18dp" />
-
-        <Button
-            android:id="@+id/internal_button"
-            android:layout_width="wrap_content"
-            android:layout_height="40sp"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="70dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/round_corners"
-            android:backgroundTint="#CDBA96"
-            android:textColor="#9e0000"
-            android:text=" Fill Data " />
-
-        <TextView
-            android:id="@+id/external"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="11"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="125dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:text="External Examiner Details"
-            android:textColor="#00009e"
-            android:background="@drawable/round_corners"
-            android:textSize="18dp" />
-
-        <Button
-            android:id="@+id/external_button"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/round_corners"
-            android:backgroundTint="#CDBA96"
-            android:textColor="#9e0000"
-            android:text=" Fill Data " />
-
-        <TextView
-            android:id="@+id/external_Bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="11"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="175dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:text="External Examiner Bill"
-            android:textColor="#00009e"
-            android:background="@drawable/round_corners"
-            android:textSize="18dp" />
-
-        <Button
-            android:id="@+id/external_Bill_Print"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="170dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/round_corners"
-            android:backgroundTint="#CDBA96"
-            android:textColor="#9e0000"
-            android:text="Print PDF" />
-
-
-        <TextView
-            android:id="@+id/internal_Bill"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="225dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:text="Internal Examiner Bill"
-            android:textColor="#00009e"
-            android:background="@drawable/round_corners"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/internal_Bill_Print"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="220dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/round_corners"
-            android:backgroundTint="#CDBA96"
-            android:textColor="#9e0000"
-            android:text="Print PDF" />
-
-        <TextView
-            android:id="@+id/external_Relieve_Order"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="275dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:text="External - Relieving Order"
-            android:textColor="#00009e"
-            android:background="@drawable/round_corners"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/external_Relieve_Print"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="270dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/round_corners"
-            android:backgroundTint="#CDBA96"
-            android:textColor="#9e0000"
-            android:text="Print PDF" />
-
-        <TextView
-            android:id="@+id/external_TADA_Form"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="325dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:text="External - TA-DA Form"
-            android:textColor="#00009e"
-            android:background="@drawable/round_corners"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/external_TADA_Print"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="320dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/round_corners"
-            android:backgroundTint="#CDBA96"
-            android:textColor="#9e0000"
-            android:text="Fill Form" />
-
-        <TextView
-            android:id="@+id/external_TADA_Form1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="375dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:text="External - TA-DA Bill"
-            android:textColor="#00009e"
-            android:background="@drawable/round_corners"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/external_TADA_Print1"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="250dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="370dp"
-            android:layout_marginEnd="5dp"
-            android:background="@drawable/round_corners"
-            android:backgroundTint="#CDBA96"
-            android:layout_marginRight="5dp"
-            android:textColor="#9e0000"
-            android:text="Print PDF" />
-
-
-        <TextView
             android:id="@+id/examDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="425dp"
+            android:layout_marginTop="75dp"
             android:layout_marginEnd="5dp"
             android:layout_marginRight="5dp"
             android:text="Extam Details"
@@ -269,7 +64,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="250dp"
             android:layout_marginLeft="250dp"
-            android:layout_marginTop="420dp"
+            android:layout_marginTop="70dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/round_corners"
             android:backgroundTint="#CDBA96"
@@ -277,9 +72,220 @@
             android:textColor="#9e0000"
             android:text="Fill Data" />
 
+        <TextView
+            android:id="@+id/internal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="11"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Internal Examiner Details"
+            android:textColor="#00009e"
+            android:background="@drawable/round_corners"
+            android:textSize="18dp" />
+
 
         <Button
-            android:id="@+id/Save"
+            android:id="@+id/internal_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="#CDBA96"
+            android:textColor="#9e0000"
+            android:text=" Fill Data " />
+
+
+        <TextView
+            android:id="@+id/external"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="11"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="175dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="External Examiner Details"
+            android:textColor="#00009e"
+            android:background="@drawable/round_corners"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/external_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="170dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="#CDBA96"
+            android:textColor="#9e0000"
+            android:text=" Fill Data " />
+
+        <TextView
+            android:id="@+id/external_TADA_Form"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="225dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="External - TA-DA Form"
+            android:textColor="#00009e"
+            android:background="@drawable/round_corners"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/external_TADA_Print"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="220dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="#CDBA96"
+            android:textColor="#9e0000"
+            android:text="Fill Form" />
+
+
+        <TextView
+            android:id="@+id/internal_Bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="275dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="Internal Examiner Bill"
+            android:textColor="#00009e"
+            android:background="@drawable/round_corners"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/internal_Bill_Print"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="270dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="#CDBA96"
+            android:textColor="#9e0000"
+            android:text="Print PDF" />
+
+
+
+        <TextView
+            android:id="@+id/external_Bill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="11"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="325dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="External Examiner Bill"
+            android:textColor="#00009e"
+            android:background="@drawable/round_corners"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/external_Bill_Print"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="#CDBA96"
+            android:textColor="#9e0000"
+            android:text="Print PDF" />
+
+
+
+        <TextView
+            android:id="@+id/external_Relieve_Order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="375dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="External - Relieving Order"
+            android:textColor="#00009e"
+            android:background="@drawable/round_corners"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/external_Relieve_Print"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="370dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="#CDBA96"
+            android:textColor="#9e0000"
+            android:text="Print PDF" />
+
+
+        <TextView
+            android:id="@+id/external_TADA_Form1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="425dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:text="External - TA-DA Bill"
+            android:textColor="#00009e"
+            android:background="@drawable/round_corners"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/external_TADA_Print1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="420dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/round_corners"
+            android:backgroundTint="#CDBA96"
+            android:layout_marginRight="5dp"
+            android:textColor="#9e0000"
+            android:text="Print PDF" />
+
+
+        <Button
+            android:id="@+id/Load"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="10dp"
@@ -290,10 +296,10 @@
             android:background="@drawable/round_corners"
             android:backgroundTint="#CDBA96"
             android:textColor="#9e0000"
-            android:text="Save" />
+            android:text="Load" />
 
         <Button
-            android:id="@+id/Load"
+            android:id="@+id/Exit"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginStart="130dp"
@@ -304,7 +310,7 @@
             android:background="@drawable/round_corners"
             android:backgroundTint="#CDBA96"
             android:textColor="#9e0000"
-            android:text="Load" />
+            android:text="Exit" />
 
         <Button
             android:id="@+id/PrintAllPDFs"
@@ -319,6 +325,7 @@
             android:backgroundTint="#CDBA96"
             android:textColor="#9e0000"
             android:text="Print All \n Combined" />
+
 
 
 
