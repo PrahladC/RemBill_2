@@ -5,10 +5,13 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -23,6 +26,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
 //                FSNL.OpenFileDialog();
 //                finish();
 //                System.exit(0);
-                FSNL.OpenFileDialog();
+               // FSNL.OpenFileDialog();
+                OpenFileDialog();
 
             }
         });
@@ -283,6 +289,39 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 */
+
+    void OpenFileDialog()
+    {	String tempstr;
+        //OpenNow=false;
+        String rootDir=Environment.getExternalStorageDirectory().getPath();
+        List<String> listItems = new ArrayList<String>();
+        File mfile=new File(rootDir);
+        File[] list=mfile.listFiles();
+        String tempupper;
+        for(int i=0;i<mfile.listFiles().length;i++)
+        {
+            tempstr=list[i].getAbsolutePath();
+            tempupper=tempstr.toUpperCase();
+            if(tempupper.endsWith(".BCH") )
+                listItems.add(list[i].getAbsolutePath());
+        }
+
+        final CharSequence[] items = listItems.toArray(new CharSequence[listItems.size()]);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select File To Open...");
+        builder.setItems(items, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int item)
+            {String ttt= (String) items[item];
+              //  LoadBatch(ttt);
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
+
+    }
+
 
 }
 
