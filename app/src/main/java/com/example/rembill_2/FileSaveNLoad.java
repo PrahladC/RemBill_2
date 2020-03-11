@@ -217,7 +217,8 @@ public class FileSaveNLoad {
 //        show(" File Saved !!!");
     }
 
-    public void ShowInternalExaminerDetails(Activity activity)
+    public void ShowInternalExaminerDetails(Activity activity, final String e1,final String e2, final String e3,final String e4,
+                                            final String e5, final String e6)
     {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -248,6 +249,9 @@ public class FileSaveNLoad {
                 dialog.dismiss();
             }
         });
+
+        et1.setText(e1); et2.setText(e2);  et3.setText(e3); et4.setText(e4);  et5.setText(e5); et6.setText(e6);
+
         dialog.show();
 
         //  To Scroll the dialog box up when Virtual (Soft) keyboard appears
@@ -268,7 +272,8 @@ public class FileSaveNLoad {
     }
 
 
-    public void ShowExternalExaminerDetails(Activity activity)
+    public void ShowExternalExaminerDetails(Activity activity, final String e7,final String e8, final String e9,final String e10,
+                                            final String e11, final String e12)
     {
 
         final Dialog dialog = new Dialog(activity);
@@ -300,6 +305,9 @@ public class FileSaveNLoad {
                 dialog.dismiss();
             }
         });
+
+        et7.setText(e7); et8.setText(e8);  et9.setText(e9); et10.setText(e10);  et11.setText(e11); et12.setText(e12);
+
         dialog.show();
 
         //  To Scroll the dialog box up when Virtual (Soft) keyboard appears
@@ -347,8 +355,6 @@ public class FileSaveNLoad {
                 examNoOfDays = et17.getText().toString();
                 NoOfStudents = et18.getText().toString();
                 remunerationPerStudent = et19.getText().toString();
-
-
 
 //                examEndDate = et18.getText().toString();
 

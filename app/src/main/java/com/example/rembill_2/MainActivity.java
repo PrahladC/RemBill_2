@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonExternal, buttonInternal, buttonExaminationDetails, Load, Exit,PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
+    String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12 ;
     String E13, E14, E15, E16, E17, E18, E19 ;
 
 
@@ -79,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
 //                FSNL.OpenFileDialog();
                 finish();
 //                System.exit(0);
-        for(int i = 0; i < ExamRelatedDetails.size(); i++  ) {
+//        for(int i = 0; i < ExamRelatedDetails.size(); i++  ) {
 
-            show(ExamRelatedDetails.get(i));
-        }
+//            show(ExamRelatedDetails.get(i));
+//        }
             }
         });
 
@@ -93,7 +94,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View arg0)
             {
 
-                FSNL.ShowInternalExaminerDetails(MainActivity.this);
+                E1 = ExamRelatedDetails.get(10);
+                E2 = ExamRelatedDetails.get(11);
+                E3 = ExamRelatedDetails.get(12);
+                E4 = ExamRelatedDetails.get(13);
+                E5 = ExamRelatedDetails.get(14);
+                E6 = ExamRelatedDetails.get(15);
+
+//                show(E1); show(E2); show(E3); show(E4); show(E5); show(E6);
+
+                FSNL.ShowInternalExaminerDetails(MainActivity.this, E1, E2, E3, E4, E5, E6);
              }
 
         });
@@ -104,7 +114,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                FSNL.ShowExternalExaminerDetails(MainActivity.this);
+                E7  = ExamRelatedDetails.get(17);
+                E8  = ExamRelatedDetails.get(18);
+                E9  = ExamRelatedDetails.get(19);
+                E10 = ExamRelatedDetails.get(20);
+                E11 = ExamRelatedDetails.get(21);
+                E12 = ExamRelatedDetails.get(21);
+
+//                show(E7); show(E8); show(E9); show(E10); show(E11); show(E12);
+
+                FSNL.ShowExternalExaminerDetails(MainActivity.this, E7, E8, E9, E10, E11, E12);
             }
 
         });
@@ -122,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 E18 = ExamRelatedDetails.get(7);
                 E19 = ExamRelatedDetails.get(8);
 
-                show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
+//              show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
 
                 FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19);
             }
