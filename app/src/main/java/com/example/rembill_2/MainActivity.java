@@ -33,7 +33,21 @@ public class MainActivity extends AppCompatActivity {
 
     FileSaveNLoad FSNL = new FileSaveNLoad();
     Message Msg = new Message();
+
+    String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();;
+    String examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
     private Button buttonExternal, buttonInternal, buttonExaminationDetails, Load, Exit,PrintAllCombined;
+    String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
+    String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
+    String E13, E14, E15, E16, E17, E18, E19 ;
+
+
+    ArrayList<String> ExamRelatedDetails = new ArrayList<>();
+
+    public void show(String tempstring)
+    {
+        Toast.makeText(this,tempstring,Toast.LENGTH_SHORT).show();
+    }
 //    private EditText Internalname;
 
     @Override
@@ -42,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         StoragePermissionGranted();
-//        if(!StoragePermissionGranted()) finish();
+//        if(!StoragePermissionGranted()) { return;}
 
         Button btnLoad = (Button) findViewById(R.id.Load);
         btnLoad.setOnClickListener(new View.OnClickListener() {
@@ -51,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
 //                FSNL.OpenFileDialog();
 //                finish();
 //                System.exit(0);
-               // FSNL.OpenFileDialog();
+//                  FSNL.OpenFileDialog();
                 OpenFileDialog();
+                LoadFile(fylenemwithpsth);
 
             }
         });
@@ -63,7 +78,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                FSNL.OpenFileDialog();
                 finish();
-                System.exit(0);
+//                System.exit(0);
+        for(int i = 0; i < ExamRelatedDetails.size(); i++  ) {
+
+            show(ExamRelatedDetails.get(i));
+        }
             }
         });
 
@@ -95,8 +114,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View arg0){
+                E13 = ExamRelatedDetails.get(2);
+                E14 = ExamRelatedDetails.get(3);
+                E15 = ExamRelatedDetails.get(4);
+                E16 = ExamRelatedDetails.get(5);
+                E17 = ExamRelatedDetails.get(6);
+                E18 = ExamRelatedDetails.get(7);
+                E19 = ExamRelatedDetails.get(8);
 
-                FSNL.ShowExamDetails(MainActivity.this);
+                show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
+
+                FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19);
             }
 
         });
@@ -131,8 +159,97 @@ public class MainActivity extends AppCompatActivity {
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
             Msg.show("Permission Granted");
 
+    }
+
+    void OpenFileDialog()
+    {	String tempstr;
+        //OpenNow=false;
+        String rootDir=Environment.getExternalStorageDirectory().getPath();
+        List<String> listItems = new ArrayList<String>();
+        File mfile=new File(rootDir);
+        File[] list=mfile.listFiles();
+        String tempupper;
+        for(int i=0;i<mfile.listFiles().length;i++)
+        {
+            tempstr=list[i].getAbsolutePath();
+            tempupper=tempstr.toUpperCase();
+            if(tempupper.endsWith(".RMB") )
+                listItems.add(list[i].getAbsolutePath());
+        }
+
+        final CharSequence[] items = listItems.toArray(new CharSequence[listItems.size()]);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Select File To Open...");
+        builder.setItems(items, new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int item)
+            {String ttt= (String) items[item];
+                LoadFile(ttt);
+//                show(ttt);
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
 
     }
+
+    void LoadFile(String fylenamewithpath){
+
+        try {
+
+            File myFile = new File(fylenamewithpath);
+            FileInputStream fIn = new FileInputStream(myFile);
+            BufferedReader myReader = new BufferedReader(new InputStreamReader(fIn));
+            String DataRow = "";
+
+//            String tempstr;
+
+//            DataRow=myReader.readLine();      show(DataRow);      /// blank line separator
+//            DataRow=myReader.readLine();      show(DataRow);      /// blank line separator
+
+//            tempstr = myReader.readLine();
+//            examYear = tempstr;                  show(examYear);
+
+/*            tempstr= myReader.readLine();     show(examStartDate);
+            examStartDate = tempstr;
+
+            tempstr= myReader.readLine();     show(examEndDate);
+            examEndDate = tempstr;
+
+            tempstr= myReader.readLine();
+            noExamDates = tempstr;              show(noExamDates);
+
+            tempstr= myReader.readLine();
+            examNoOfDays = tempstr;             show(examNoOfDays);
+
+            tempstr= myReader.readLine();
+            NoOfStudents = tempstr;             show(NoOfStudents);
+
+            tempstr= myReader.readLine();
+            remunerationPerStudent = tempstr;   show(remunerationPerStudent);
+*/
+
+            ExamRelatedDetails.removeAll(ExamRelatedDetails);
+            while ((DataRow = myReader.readLine()) != null)
+
+            {
+                ExamRelatedDetails.add(DataRow);
+            }
+
+            myReader.close();
+
+
+
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
 
 
 /*    public void ShowInternalExaminerDetails(Activity activity)
@@ -289,39 +406,6 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 */
-
-    void OpenFileDialog()
-    {	String tempstr;
-        //OpenNow=false;
-        String rootDir=Environment.getExternalStorageDirectory().getPath();
-        List<String> listItems = new ArrayList<String>();
-        File mfile=new File(rootDir);
-        File[] list=mfile.listFiles();
-        String tempupper;
-        for(int i=0;i<mfile.listFiles().length;i++)
-        {
-            tempstr=list[i].getAbsolutePath();
-            tempupper=tempstr.toUpperCase();
-            if(tempupper.endsWith(".BCH") )
-                listItems.add(list[i].getAbsolutePath());
-        }
-
-        final CharSequence[] items = listItems.toArray(new CharSequence[listItems.size()]);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select File To Open...");
-        builder.setItems(items, new DialogInterface.OnClickListener()
-        {
-            public void onClick(DialogInterface dialog, int item)
-            {String ttt= (String) items[item];
-              //  LoadBatch(ttt);
-            }
-        });
-        AlertDialog alert = builder.create();
-        alert.show();
-
-    }
-
 
 }
 

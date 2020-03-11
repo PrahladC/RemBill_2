@@ -21,15 +21,23 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.rembill_2.Msg.show;
+
 public class FileSaveNLoad {
 
-    private static  MainActivity MA;
-    void SetMA(MainActivity MA){this.MA=MA;}
+    public MainActivity MA;
+    public void SetMA(MainActivity MA){this.MA=MA;}
     Message Msg = new Message();
+
+    public void show(String tempstring)
+    {
+        Toast.makeText(MA,tempstring,Toast.LENGTH_SHORT).show();
+    }
 
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
     String examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
+
 
 
     void OpenFileDialog()
@@ -59,7 +67,8 @@ public class FileSaveNLoad {
         {
             public void onClick(DialogInterface dialog, int item)
             {String ttt= (String) items[item];
-                LoadFile(ttt);
+//                LoadFile(ttt);
+                show(ttt);
             }
         });
 
@@ -75,17 +84,50 @@ public class FileSaveNLoad {
             File myFile = new File(fylenamewithpath);
             FileInputStream fIn = new FileInputStream(myFile);
             BufferedReader myReader = new BufferedReader(new InputStreamReader(fIn));
-            String aDataRow = "";
+            String DataRow = "";
 
-            aDataRow=myReader.readLine(); /// blank line separator
+            DataRow=myReader.readLine(); /// blank line separator
+            DataRow=myReader.readLine(); /// blank line separator
 
-            String temp[],stemp;
+            String tempstr;
+
+            tempstr = myReader.readLine();
+            examYear = tempstr;
+
+
+            tempstr= myReader.readLine();    // show(examStartDate);
+            examStartDate = tempstr;
+
+            tempstr= myReader.readLine();    // show(examEndDate);
+            examEndDate = tempstr;
+
+            tempstr= myReader.readLine();
+            noExamDates = tempstr;
+
+            tempstr= myReader.readLine();
+            examNoOfDays = tempstr;
+
+            tempstr= myReader.readLine();
+            NoOfStudents = tempstr;
+
+            tempstr= myReader.readLine();
+            remunerationPerStudent = tempstr;
+
+            MA.ExamRelatedDetails.removeAll(MA.ExamRelatedDetails);
+            while ((DataRow = myReader.readLine()) != null)
+
+            {
+                MA.ExamRelatedDetails.add(DataRow);
+            }
+
+            myReader.close();
+
 
 
         }
         catch (Exception e)
         {
-//            Toast.makeText(MA,e.getMessage(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(MA,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
 
 
@@ -114,7 +156,8 @@ public class FileSaveNLoad {
 
             myOutWriter.append("==== Details of Examination ====");
 
-            myOutWriter.append("\n");myOutWriter.append(examYear);
+            myOutWriter.append("\n");
+            myOutWriter.append(examYear);
             myOutWriter.append("\n");
             myOutWriter.append(examStartDate);
             myOutWriter.append("\n");
@@ -129,11 +172,7 @@ public class FileSaveNLoad {
             myOutWriter.append(remunerationPerStudent);
 
             myOutWriter.append("\n");
-            myOutWriter.append("\n");
-
             myOutWriter.append("==== Details of Internal Examiner ====");
-
-            myOutWriter.append("\n");
             myOutWriter.append("\n");
 
             myOutWriter.append(internalname);
@@ -149,11 +188,7 @@ public class FileSaveNLoad {
             myOutWriter.append(internalAddressLine3);
 
             myOutWriter.append("\n");
-            myOutWriter.append("\n");
-
             myOutWriter.append("==== Details of EXternal Examiner ====");
-
-            myOutWriter.append("\n");
             myOutWriter.append("\n");
 
             myOutWriter.append(externalname);
@@ -284,7 +319,8 @@ public class FileSaveNLoad {
 
     }
 
-    public void ShowExamDetails(Activity activity)
+    public void ShowExamDetails(Activity activity, final String e13, final String e14, final String e15, final String e16,
+                                 final String e17, final String e18, final String e19)
     {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -295,8 +331,9 @@ public class FileSaveNLoad {
         final EditText et14 = dialog.findViewById(R.id.ExamStartDate);
         final EditText et15 = dialog.findViewById(R.id.ExamEndDate);
         final EditText et16 = dialog.findViewById(R.id.NoExamDate);
-        final EditText et17 = dialog.findViewById(R.id.NoOfStudents);
-        final EditText et18 = dialog.findViewById(R.id.RemPerStudent);
+        final EditText et17 = dialog.findViewById(R.id.NoOfDaysOfExam);
+        final EditText et18 = dialog.findViewById(R.id.NoOfStudents);
+        final EditText et19 = dialog.findViewById(R.id.RemPerStudent);
 
         Button btnSubmit = (Button) dialog.findViewById(R.id.submitButton);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -309,7 +346,9 @@ public class FileSaveNLoad {
                 noExamDates = et16.getText().toString();
                 examNoOfDays = et17.getText().toString();
                 NoOfStudents = et18.getText().toString();
-                remunerationPerStudent = et18.getText().toString();
+                remunerationPerStudent = et19.getText().toString();
+
+
 
 //                examEndDate = et18.getText().toString();
 
@@ -317,6 +356,9 @@ public class FileSaveNLoad {
                 dialog.dismiss();
             }
         });
+
+        et13.setText(e13);  et14.setText(e14);  et15.setText(e15);  et16.setText(e16);
+        et17.setText(e17);  et18.setText(e18);  et19.setText(e19);
 
         dialog.show();
         //  To Scroll the dialog box up when Virtual (Soft) keyboard appears
