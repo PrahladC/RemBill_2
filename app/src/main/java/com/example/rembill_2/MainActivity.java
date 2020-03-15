@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         StoragePermissionGranted();
 //        if(!StoragePermissionGranted()) { return;}
 
+        /// Iniitialized array with 20 empty strings
+        for(int i=0;i<20;i++) ExamRelatedDetails.add("");
+
         Button btnLoad = (Button) findViewById(R.id.Load);
         btnLoad.setOnClickListener(new View.OnClickListener() {
             @Override
