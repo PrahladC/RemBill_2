@@ -152,7 +152,7 @@ public class FileSaveNLoad {
             OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
 //            myOutWriter.append(FileNameWithPath);
 
-            myOutWriter.append("\n");
+//            myOutWriter.append("\n");
 
             myOutWriter.append("==== Details of Examination ====");
 
@@ -258,7 +258,7 @@ public class FileSaveNLoad {
         dialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        Button btnCancel = (Button) dialog.findViewById(R.id.cancel);
+        Button btnCancel = (Button) dialog.findViewById(R.id.ok);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -314,7 +314,7 @@ public class FileSaveNLoad {
         dialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        Button btnCancel = (Button) dialog.findViewById(R.id.cancel);
+        Button btnCancel = (Button) dialog.findViewById(R.id.ok);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -371,7 +371,7 @@ public class FileSaveNLoad {
         dialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        Button btnCancel = (Button) dialog.findViewById(R.id.cancelExamDetails);
+        Button btnCancel = (Button) dialog.findViewById(R.id.OKExamDetails);
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
