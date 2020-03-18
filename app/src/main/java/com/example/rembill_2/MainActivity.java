@@ -33,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
     FileSaveNLoad FSNL = new FileSaveNLoad();
     Message Msg = new Message();
+    ExaminersBill EB = new ExaminersBill();
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();;
     String examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
-    private Button buttonExternal, buttonInternal, buttonExaminationDetails, Load, Exit,PrintAllCombined;
+    private Button buttonExternal, buttonInternal, buttonExaminationDetails, PintInternalBill, Load, Exit,PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
     String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12 ;
@@ -80,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FSNL.OpenFileDialog();
+
                 finish();
-//                System.exit(0);
 //        for(int i = 0; i < ExamRelatedDetails.size(); i++  ) {
 
 //            show(ExamRelatedDetails.get(i));
@@ -151,7 +151,26 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        //  internal_Bill_Print
+/*
+        PintInternalBill = (Button) findViewById(R.id.internal_button);
+        PintInternalBill.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0){
+
+                EB.CreatePDF();
+                Msg.show("PDF Created");
+            }
+
+        });
+*/
+
+
     }
+
+//                PintInternalBill = (Button) findViewById(R.id.ExamDetails_button);
+
 
     public boolean StoragePermissionGranted() {
         if (Build.VERSION.SDK_INT >= 23) {
@@ -260,8 +279,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             myReader.close();
-
-
 
         }
         catch (Exception e)
