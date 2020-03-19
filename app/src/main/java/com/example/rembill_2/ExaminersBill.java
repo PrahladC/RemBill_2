@@ -4,10 +4,12 @@ import android.os.Environment;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -16,7 +18,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class ExaminersBill {
@@ -33,157 +37,12 @@ public class ExaminersBill {
     public ArrayList<String> fileArray = new ArrayList<String>();
 
 
-    int listfiles(String path) {
-        FilenameFilter mrkFilter = new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                String lowercaseName = name.toLowerCase();
-                if (lowercaseName.endsWith(".rmb")) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        };
-
-        fileArray.removeAll(fileArray);
-        File folder = new File(path);
-        File[] listOfFiles = folder.listFiles(mrkFilter);
-        for (int i = 0; i < listOfFiles.length; i++) {
-            if (listOfFiles[i].isFile()) {
-                fileArray.add(listOfFiles[i].getAbsolutePath());
-            }
-        }
-        int Total = fileArray.size();
-        return Total;
-    }
-
-
-    static  void Add(Document document,
-                     String Zone,
-                     String MonthYear,
-                     String BatchNo,
-                     String Date,
-                     String BatchTime,
-                     String School,
-                     String Index,
-                     String Strim,
-                     String Standard,
-                     String Subject,
-                     String SubjectCode,
-                     String Medium,
-                     String Type,
-                     String BatchCreator,
-                     String BatchSession,
-                     String froll,
-                     String lroll
-
-    ) throws DocumentException
-    {
-        PdfPTable table = new PdfPTable(1);
-
-        PdfPCell cell = new PdfPCell(new Phrase("Maharashtra State Board of Secondary & Higher Secondary Education",normal));cell.setBorder(PdfPCell.NO_BORDER);
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);cell.setBorder(PdfPCell.NO_BORDER);
-        table.addCell(cell);
-
-
-        cell = new PdfPCell(new Phrase(Zone,normal));cell.setBorder(PdfPCell.NO_BORDER);
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-        table.addCell(cell);
-
-        cell = new PdfPCell(new Phrase("HSC - Practical - "+MonthYear,normal));
-        cell.setBorder(PdfPCell.NO_BORDER);
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-        table.addCell(cell);
-
-
-        cell = new PdfPCell(new Phrase("Attendance Sheet",normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);cell.setBorder(PdfPCell.NO_BORDER);
-        table.addCell(cell);
-
-        //////////   table row
-        float col3[]= {12,12,7};
-        PdfPTable table2 = new PdfPTable(col3);
-        table2.setWidthPercentage(95);
-        cell = new PdfPCell(new Phrase("School/College/Center : "+School,normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase(" ",normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase("Batch No : "+BatchNo,normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        //////////   table row
-
-        cell = new PdfPCell(new Phrase("Subject : "+Subject,normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase(" ",normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase("Date : "+Date,normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-
-//////////table row
-
-        cell = new PdfPCell(new Phrase("Seat No's From : "+froll+" - "+lroll,
-                normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase(" ",normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase("Time : "+BatchTime,normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-//////////table row
-
-        cell = new PdfPCell(new Phrase("Extra Seat No's: ",normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase(" ",normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        cell = new PdfPCell(new Phrase(" ",normal));
-        cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
-        cell.setBorder(PdfPCell.NO_BORDER);
-        table2.addCell(cell);
-
-        table2.setSpacingAfter(8f);
-
-
-        document.add(table);
-        document.add(table2);
-
-    }
 
     void CreatePDF()
     {
-        rootDir = Environment.getExternalStorageDirectory().getPath();
+/*        rootDir = Environment.getExternalStorageDirectory().getPath();
         String pdfFileNameWithPath = rootDir + "/" + FSNL.externalname + ".pdf";
+//        String pdfFileNameWithPath = rootDir + "/" + FSNL.externalname + ".pdf";
         int totalfiles = listfiles(rootDir);
 //        MA.show(String.format("Total Batches %d",totalfiles));
 
@@ -205,6 +64,49 @@ public class ExaminersBill {
         } catch (Exception e) {
             e.printStackTrace();
         }
+*/
+        String pdfFileNameWithPath = "New.pdf";
+
+        try {
+            Document doc = new Document();
+            File pdfFile =new File(pdfFileNameWithPath);
+            PdfWriter docWriter = PdfWriter.getInstance(doc, new FileOutputStream(pdfFile));
+            doc.open();
+
+
+            doc.add(new Paragraph("Maharashtra State Board of Secondary & Higher Secondary Education"));
+            //list all the products sold to the customer
+            float[] columnWidths = {1.5f, 2f, 5f, 2f,2f};
+            //create PDF table with the given widths
+            PdfPTable table = new PdfPTable(columnWidths);
+            // set table width a percentage of the page width
+            table.setTotalWidth(500f);
+
+            PdfPCell cell = new PdfPCell(new Phrase("Qty"));
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            table.addCell(cell);
+            cell = new PdfPCell(new Phrase("Item Number"));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table.addCell(cell);
+            cell = new PdfPCell(new Phrase("Item Description"));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table.addCell(cell);
+            cell = new PdfPCell(new Phrase("Price"));
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            table.addCell(cell);
+            cell = new PdfPCell(new Phrase("Ext Price"));
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            table.addCell(cell);
+            table.setHeaderRows(1);
+
+
+
+            doc.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 }

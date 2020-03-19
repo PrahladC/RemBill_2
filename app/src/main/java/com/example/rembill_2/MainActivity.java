@@ -152,19 +152,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //  internal_Bill_Print
-/*
-        PintInternalBill = (Button) findViewById(R.id.internal_button);
+
+        PintInternalBill = (Button) findViewById(R.id.internal_Bill_Print);
         PintInternalBill.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0){
 
                 EB.CreatePDF();
-                Msg.show("PDF Created");
+//                Msg.show("PDF Created");
             }
 
         });
-*/
+
 
 
     }
