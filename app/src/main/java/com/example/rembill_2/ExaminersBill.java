@@ -2,6 +2,7 @@ package com.example.rembill_2;
 
 import android.os.Environment;
 
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -21,6 +22,7 @@ import java.io.FilenameFilter;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.DecimalFormat;
+import java.text.Normalizer;
 import java.util.ArrayList;
 
 public class ExaminersBill {
@@ -40,66 +42,51 @@ public class ExaminersBill {
 
     void CreatePDF()
     {
-/*        rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" + FSNL.externalname + ".pdf";
-//        String pdfFileNameWithPath = rootDir + "/" + FSNL.externalname + ".pdf";
-        int totalfiles = listfiles(rootDir);
-//        MA.show(String.format("Total Batches %d",totalfiles));
-
-        try {
-
-            File myFile = new File(pdfFileNameWithPath);
-            OutputStream output = new FileOutputStream(myFile);
-            Document document = new Document();
-            document = new Document(PageSize.A4);
-            document.setMargins(50, 30, 15, 2);
-            PdfWriter.getInstance(document, output);
-
-            document.open();
-            String eText = FSNL.examEndDate;
-            document.add(new Paragraph(eText));
-            document.add(new Paragraph("Maharashtra State Board of Secondary & Higher Secondary Education"));
-            document.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-*/
-        String pdfFileNameWithPath = "New.pdf";
+        rootDir = Environment.getExternalStorageDirectory().getPath();
+        String pdfFileNameWithPath = rootDir + "/" + "New.pdf";
 
         try {
             Document doc = new Document();
+            doc = new Document(PageSize.A4);
+            doc.setMargins(5, 2, 30, 5);
+
             File pdfFile =new File(pdfFileNameWithPath);
             PdfWriter docWriter = PdfWriter.getInstance(doc, new FileOutputStream(pdfFile));
+//            PdfContentByte pcb = docWriter.getDirectContent();
             doc.open();
 
+// Creating a table object
+//            float [] pointColumnWidths = {150F, 150F, 150F, 150F};
+            float [] pointColumnWidth = {150F};
+            PdfPTable table = new PdfPTable(pointColumnWidth);
+            PdfPCell cell = new PdfPCell();
 
-            doc.add(new Paragraph("Maharashtra State Board of Secondary & Higher Secondary Education"));
-            //list all the products sold to the customer
-            float[] columnWidths = {1.5f, 2f, 5f, 2f,2f};
-            //create PDF table with the given widths
-            PdfPTable table = new PdfPTable(columnWidths);
-            // set table width a percentage of the page width
-            table.setTotalWidth(500f);
+//            PdfPTable table1 = new PdfPTable(4); // 4 columns.
 
-            PdfPCell cell = new PdfPCell(new Phrase("Qty"));
-            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
-            table.addCell(cell);
-            cell = new PdfPCell(new Phrase("Item Number"));
-            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
-            table.addCell(cell);
-            cell = new PdfPCell(new Phrase("Item Description"));
-            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
-            table.addCell(cell);
-            cell = new PdfPCell(new Phrase("Price"));
-            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
-            table.addCell(cell);
-            cell = new PdfPCell(new Phrase("Ext Price"));
-            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
-            table.addCell(cell);
-            table.setHeaderRows(1);
+            PdfPCell cell1 = new PdfPCell(new Paragraph(" C - 2 / P2 - 13"));
+            cell1.setFixedHeight(20);
+            table.setWidthPercentage(15);
+            table.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            table.addCell(cell1);
+            doc.add(table);
+
+            Phrase p1 = new Paragraph("Maharashtra State Board of Secondary & Higher Secondary Education");
+            Phrase p2 = new Paragraph("MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703");
+            Phrase p3 = new Paragraph("H.S.C. PRACTICAL EXAMINATION FEBRUARY/JULY");
+            Phrase p4 = new Paragraph("BILL OF REMUNERATION OF INTERNAL/EXTERNAL EXAMINER");
 
 
+            ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
+            doc.add(p1);
+            ((Paragraph) p2).setAlignment(Element.ALIGN_CENTER);
+            doc.add(p2);
+            ((Paragraph) p3).setAlignment(Element.ALIGN_CENTER);
+            doc.add(p3);
+            ((Paragraph) p4).setAlignment(Element.ALIGN_CENTER);
+            doc.add(p4);
+
+//            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);cell.setBorder(PdfPCell.NO_BORDER);
+//            table.addCell(cell);
 
             doc.close();
         }
