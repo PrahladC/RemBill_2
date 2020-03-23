@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
                 E4 = ExamRelatedDetails.get(12);
                 E5 = ExamRelatedDetails.get(13);
                 E6 = ExamRelatedDetails.get(14);
-
+//                Msg.show(E1);
+//                msg.Show(E1, );
 //                show(E1); show(E2); show(E3); show(E4); show(E5); show(E6);
 
                 FSNL.ShowInternalExaminerDetails(MainActivity.this, E1, E2, E3, E4, E5, E6);

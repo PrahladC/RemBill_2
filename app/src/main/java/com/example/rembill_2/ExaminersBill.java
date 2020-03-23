@@ -80,7 +80,7 @@ public class ExaminersBill {
 
             float [] pointColumnWidth = {150F};
             PdfPTable table = new PdfPTable(pointColumnWidth);
-//            PdfPCell cell = new PdfPCell();
+            PdfPCell cell = new PdfPCell();
 //            String year;
 //            year = MA.examYear;     //   show(year);
 
@@ -106,7 +106,7 @@ public class ExaminersBill {
             Phrase  p7 = new Paragraph("& Higher Secondary Education");
             Phrase  p8 = new Paragraph("Mumbai Divisional Board,");
             Phrase  p9 = new Paragraph("Vashi, Navi Mumbai 400703");
-            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  " + " PRAHALLAD N. CHIPPALAGATTI");
+            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  " + " PC ");
             Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
                                                  "Practical Examination February / July -");
             Paragraph p12 = new Paragraph("at the" + "  P L A C E  O F  E X A M I N A T I O N " +
@@ -114,8 +114,8 @@ public class ExaminersBill {
 
 //            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE");
 //            Phrase p12 = new Paragraph("Practical Examination February / July" );
-
-
+            Phrase  p13 = new Paragraph("Particulars");
+            Phrase  p14 = new Paragraph("Amount");
 
 
 
@@ -157,7 +157,7 @@ public class ExaminersBill {
             p11.setSpacingAfter(9f);
            doc.add(p11);
             ((Paragraph) p12).setAlignment(Element.ALIGN_LEFT);
-            p11.setSpacingAfter(9f);
+            p12.setSpacingAfter(22f);
             doc.add(p12);
 
 
@@ -173,10 +173,10 @@ public class ExaminersBill {
             canvas.lineTo(95*x/100, 68.25*y/100);          // Line in front of Name
 
             canvas.moveTo(14*x/100, 65*y/100);
-            canvas.lineTo(45*x/100, 65*y/100);          // Line in front of Subject
+            canvas.lineTo(45*x/100, 65*y/100);             // Line in front of Subject
 
-            canvas.moveTo(80*x/100, 65*y/100);          // Difference of 3.25 in y-coordinates
-            canvas.lineTo(95*x/100, 65*y/100);          // Line in front of Examination February / July
+            canvas.moveTo(80*x/100, 65*y/100);             // Difference of 3.25 in y-coordinates
+            canvas.lineTo(95*x/100, 65*y/100);             // Line in front of Examination February / July
             // If we add length of the Subject String
             // i.e x-coordinate of .lineto = x-coordinate of .moveto + l(Sunject String) + 5
             //  makes the line flexible
@@ -186,22 +186,26 @@ public class ExaminersBill {
             canvas.moveTo(80*x/100, 61.75*y/100);          // Difference of 3.25 in y-coordinates
             canvas.lineTo(95*x/100, 61.75*y/100);          // Line in front of Examination February / July
 
+            canvas.moveTo(6.8*x/100, 59*y/100);            // Top Line of the Bill Table
+            canvas.lineTo(95*x/100, 59*y/100);             // Top Line of the Bill Table
+
+            canvas.moveTo(6.8*x/100, 56*y/100);            // Second Line of the Bill Table
+            canvas.lineTo(95*x/100, 56*y/100);             // Second Line of the Bill Table
 
 
-//            canvas.lineTo(200, 200);
             canvas.closePathStroke();
 
-/*            float col2[]= {x/2,x/2};
+            float col2[]= {2*x/3,x/3};
             PdfPTable table2 = new PdfPTable(col2);
             table2.setWidthPercentage(100);
 
-            cell = new PdfPCell(new Phrase(p11));
-            cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
+            cell = new PdfPCell(new Phrase(p13));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             cell.setBorder(PdfPCell.NO_BORDER);
             table2.addCell(cell);
 
-            cell = new PdfPCell(new Phrase(p12));
-            cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
+            cell = new PdfPCell(new Phrase(p14));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             cell.setBorder(PdfPCell.NO_BORDER);
             table2.addCell(cell);
 
@@ -209,7 +213,7 @@ public class ExaminersBill {
 
             doc.add(table2);
 
-            Paragraph paragraph1 = new Paragraph("First paragraph");
+/*            Paragraph paragraph1 = new Paragraph("First paragraph");
             paragraph1.setSpacingAfter(72f);
             doc.add(paragraph1);
             Paragraph paragraph2 = new Paragraph("Second paragraph");
