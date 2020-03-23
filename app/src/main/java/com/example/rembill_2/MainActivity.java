@@ -34,21 +34,23 @@ public class MainActivity extends AppCompatActivity {
     FileSaveNLoad FSNL = new FileSaveNLoad();
     Message Msg = new Message();
     ExaminersBill EB = new ExaminersBill();
+    Msg msg = new Msg();
 
-    String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();;
+    String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
+    ;
     String examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
-    private Button buttonExternal, buttonInternal, buttonExaminationDetails, PintInternalBill, Load, Exit,PrintAllCombined;
+    private Button buttonExternal, buttonInternal, buttonExaminationDetails, PintInternalBill, Load, Exit, PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
-    String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12 ;
-    String E13, E14, E15, E16, E17, E18, E19 ;
+    String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12;
+    String E13, E14, E15, E16, E17, E18, E19, E20;
+    float temp;
 
 
     ArrayList<String> ExamRelatedDetails = new ArrayList<>();
 
-    public void show(String tempstring)
-    {
-        Toast.makeText(this,tempstring,Toast.LENGTH_SHORT).show();
+    public void show(String tempstring) {
+        Toast.makeText(this, tempstring, Toast.LENGTH_SHORT).show();
     }
 //    private EditText Internalname;
 
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 //        if(!StoragePermissionGranted()) { return;}
 
         /// Iniitialized array with 20 empty strings
-        for(int i=0;i<22;i++) ExamRelatedDetails.add("");
+        for (int i = 0; i < 22; i++) ExamRelatedDetails.add("");
 
         Button btnLoad = (Button) findViewById(R.id.Load);
         btnLoad.setOnClickListener(new View.OnClickListener() {
@@ -94,8 +96,7 @@ public class MainActivity extends AppCompatActivity {
         buttonInternal.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View arg0)
-            {
+            public void onClick(View arg0) {
 
                 E1 = ExamRelatedDetails.get(9);
                 E2 = ExamRelatedDetails.get(10);
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 //                show(E1); show(E2); show(E3); show(E4); show(E5); show(E6);
 
                 FSNL.ShowInternalExaminerDetails(MainActivity.this, E1, E2, E3, E4, E5, E6);
-             }
+            }
 
         });
 
@@ -117,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                E7  = ExamRelatedDetails.get(16);
-                E8  = ExamRelatedDetails.get(17);
-                E9  = ExamRelatedDetails.get(18);
+                E7 = ExamRelatedDetails.get(16);
+                E8 = ExamRelatedDetails.get(17);
+                E9 = ExamRelatedDetails.get(18);
                 E10 = ExamRelatedDetails.get(19);
                 E11 = ExamRelatedDetails.get(20);
                 E12 = ExamRelatedDetails.get(21);
@@ -135,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         buttonExaminationDetails.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View arg0){
+            public void onClick(View arg0) {
                 E13 = ExamRelatedDetails.get(1);
                 E14 = ExamRelatedDetails.get(2);
                 E15 = ExamRelatedDetails.get(3);
@@ -143,10 +144,11 @@ public class MainActivity extends AppCompatActivity {
                 E17 = ExamRelatedDetails.get(5);
                 E18 = ExamRelatedDetails.get(6);
                 E19 = ExamRelatedDetails.get(7);
+                E20 = ExamRelatedDetails.get(7);
 
 //              show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
 
-                FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19);
+                FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19, E20);
             }
 
         });
@@ -157,14 +159,13 @@ public class MainActivity extends AppCompatActivity {
         PintInternalBill.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View arg0){
+            public void onClick(View arg0) {
 
                 EB.CreatePDF();
 //                Msg.show("PDF Created");
             }
 
         });
-
 
 
     }
@@ -202,19 +203,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void OpenFileDialog()
-    {	String tempstr;
+    void OpenFileDialog() {
+        String tempstr;
         //OpenNow=false;
-        String rootDir=Environment.getExternalStorageDirectory().getPath();
+        String rootDir = Environment.getExternalStorageDirectory().getPath();
         List<String> listItems = new ArrayList<String>();
-        File mfile=new File(rootDir);
-        File[] list=mfile.listFiles();
+        File mfile = new File(rootDir);
+        File[] list = mfile.listFiles();
         String tempupper;
-        for(int i=0;i<mfile.listFiles().length;i++)
-        {
-            tempstr=list[i].getAbsolutePath();
-            tempupper=tempstr.toUpperCase();
-            if(tempupper.endsWith(".RMB") )
+        for (int i = 0; i < mfile.listFiles().length; i++) {
+            tempstr = list[i].getAbsolutePath();
+            tempupper = tempstr.toUpperCase();
+            if (tempupper.endsWith(".RMB"))
                 listItems.add(list[i].getAbsolutePath());
         }
 
@@ -222,10 +222,9 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select File To Open...");
-        builder.setItems(items, new DialogInterface.OnClickListener()
-        {
-            public void onClick(DialogInterface dialog, int item)
-            {String ttt= (String) items[item];
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int item) {
+                String ttt = (String) items[item];
                 LoadFile(ttt);
 //                show(ttt);
             }
@@ -235,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void LoadFile(String fylenamewithpath){
+    void LoadFile(String fylenamewithpath) {
 
         try {
 
@@ -272,24 +271,20 @@ public class MainActivity extends AppCompatActivity {
 */
 
             ExamRelatedDetails.removeAll(ExamRelatedDetails);
-            while ((DataRow = myReader.readLine()) != null)
-
-            {
+            while ((DataRow = myReader.readLine()) != null) {
                 ExamRelatedDetails.add(DataRow);
             }
 
             myReader.close();
 
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this,e.getMessage(),Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
 
     }
 
-
+}
 
 /*    public void ShowInternalExaminerDetails(Activity activity)
     {
@@ -444,10 +439,10 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     }
-*/
+
 
 }
-
+*/
 
 
 

@@ -32,6 +32,20 @@
         android:text="0000"
         android:visibility="invisible" />
 
+            <EditText
+                android:id="@+id/ExamSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="Subject"/>
+
+
     <EditText
         android:id="@+id/ExamYear"
         android:layout_width="match_parent"
@@ -44,7 +58,6 @@
         android:paddingLeft="10dp"
         android:layout_margin="3dp"
         android:hint="Year of Examination"/>
-
 
     <EditText
         android:id="@+id/ExamStartDate"

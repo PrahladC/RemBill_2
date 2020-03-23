@@ -11,6 +11,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.CMYKColor;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -35,6 +36,10 @@ public class ExaminersBill {
     public void show(String tempstring)
     {
         Toast.makeText(MA,tempstring,Toast.LENGTH_SHORT).show();
+    }
+    public void Show(float floattemp)
+    {
+        Toast.makeText(MA, (int) floattemp,Toast.LENGTH_SHORT).show();
     }
 
     static Font font1 = new Font(Font.FontFamily.TIMES_ROMAN, 12,
@@ -70,10 +75,13 @@ public class ExaminersBill {
 
 // Creating a table object
 //          float [] pointColumnWidths = {150F, 150F, 150F, 150F};
+            float x = doc.getPageSize().getWidth();     //  x = 595
+            float y = doc.getPageSize().getHeight();    //  y = 840
+
             float [] pointColumnWidth = {150F};
             PdfPTable table = new PdfPTable(pointColumnWidth);
-            PdfPCell cell = new PdfPCell();
-            String year;
+//            PdfPCell cell = new PdfPCell();
+//            String year;
 //            year = MA.examYear;     //   show(year);
 
 //            PdfPTable table1 = new PdfPTable(4); // 4 columns.
@@ -86,19 +94,30 @@ public class ExaminersBill {
             table.addCell(cell1);
             doc.add(table);
 //            doc.add(new Paragraph(year));
-            Phrase p1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION", font1 );
-            Phrase p2 = new Paragraph("MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703", font1);
-            Phrase p3 = new Paragraph("H.S.C. PRACTICAL EXAMINATION FEBRUARY/JULY - " , font1);
-            Phrase p4 = new Paragraph("BILL OF REMUNERATION OF INTERNAL/EXTERNAL EXAMINER", font1);
-//            doc.add( Chunk.NEWLINE );
+            Phrase  p1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION", font1 );
+            Phrase  p2 = new Paragraph("MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703", font1);
+            Phrase  p3 = new Paragraph("H.S.C. PRACTICAL EXAMINATION FEBRUARY/JULY - " , font1);
+            Phrase  p4 = new Paragraph("BILL OF REMUNERATION OF INTERNAL/EXTERNAL EXAMINER", font1);
 //            doc.add( Chunk.NEWLINE );
 //            doc.add(new Paragraph("\n"));
 //            doc.add(new Paragraph(year));
-            Phrase p5 = new Paragraph("The Divisional Secretary,");
-            Phrase p6 = new Paragraph("Maharashtra State Board of Secondary");
-            Phrase p7 = new Paragraph("& Higher Secondary Education");
-            Phrase p8 = new Paragraph("Mumbai Divisional Board,");
-            Phrase p9 = new Paragraph("Vashi, Navi Mumbai 400703");
+            Phrase  p5 = new Paragraph("The Divisional Secretary,");
+            Phrase  p6 = new Paragraph("Maharashtra State Board of Secondary");
+            Phrase  p7 = new Paragraph("& Higher Secondary Education");
+            Phrase  p8 = new Paragraph("Mumbai Divisional Board,");
+            Phrase  p9 = new Paragraph("Vashi, Navi Mumbai 400703");
+            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  " + " PRAHALLAD N. CHIPPALAGATTI");
+            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
+                                                 "Practical Examination February / July -");
+            Paragraph p12 = new Paragraph("at the" + "  P L A C E  O F  E X A M I N A T I O N " +
+                                                "                    Index No.of Jr.College - " + "  " + "J - 31.004.005");
+
+//            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE");
+//            Phrase p12 = new Paragraph("Practical Examination February / July" );
+
+
+
+
 
             ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
             doc.add(p1);
@@ -126,9 +145,76 @@ public class ExaminersBill {
             doc.add(p8);
             ((Paragraph) p9).setAlignment(Element.ALIGN_LEFT);
             doc.add(p9);
+//          Phrase p0 = new Paragraph(" ");
+            ((Paragraph) p0).setAlignment(Element.ALIGN_LEFT);
+            doc.add(p0);
+            ((Paragraph) p10).setAlignment(Element.ALIGN_LEFT);
+            p10.setSpacingAfter(9f);
+            doc.add(p10);
+//            ((Paragraph) p0).setAlignment(Element.ALIGN_LEFT);
+//            doc.add(p0);
+           ((Paragraph) p11).setAlignment(Element.ALIGN_LEFT);
+            p11.setSpacingAfter(9f);
+           doc.add(p11);
+            ((Paragraph) p12).setAlignment(Element.ALIGN_LEFT);
+            p11.setSpacingAfter(9f);
+            doc.add(p12);
 
 
 
+// Creating a PdfCanvas object
+//            PdfCanvas canvas = new PdfCanvas(pdfPage);
+            PdfContentByte canvas = docWriter.getDirectContent();
+            CMYKColor blackColor = new CMYKColor(0.f, 1.f, 0.f, 0.f);
+            canvas.setColorStroke(blackColor);
+
+
+            canvas.moveTo((25.5)*x/100, 68.25*y/100);
+            canvas.lineTo(95*x/100, 68.25*y/100);          // Line in front of Name
+
+            canvas.moveTo(14*x/100, 65*y/100);
+            canvas.lineTo(45*x/100, 65*y/100);          // Line in front of Subject
+
+            canvas.moveTo(80*x/100, 65*y/100);          // Difference of 3.25 in y-coordinates
+            canvas.lineTo(95*x/100, 65*y/100);          // Line in front of Examination February / July
+            // If we add length of the Subject String
+            // i.e x-coordinate of .lineto = x-coordinate of .moveto + l(Sunject String) + 5
+            //  makes the line flexible
+            canvas.moveTo(12*x/100, 61.75*y/100);          // Difference of 3.25 in y-coordinates
+            canvas.lineTo(58*x/100, 61.75*y/100);          // Line in front of at the
+
+            canvas.moveTo(80*x/100, 61.75*y/100);          // Difference of 3.25 in y-coordinates
+            canvas.lineTo(95*x/100, 61.75*y/100);          // Line in front of Examination February / July
+
+
+
+//            canvas.lineTo(200, 200);
+            canvas.closePathStroke();
+
+/*            float col2[]= {x/2,x/2};
+            PdfPTable table2 = new PdfPTable(col2);
+            table2.setWidthPercentage(100);
+
+            cell = new PdfPCell(new Phrase(p11));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
+            cell.setBorder(PdfPCell.NO_BORDER);
+            table2.addCell(cell);
+
+            cell = new PdfPCell(new Phrase(p12));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
+            cell.setBorder(PdfPCell.NO_BORDER);
+            table2.addCell(cell);
+
+            table2.setSpacingBefore(5f);
+
+            doc.add(table2);
+
+            Paragraph paragraph1 = new Paragraph("First paragraph");
+            paragraph1.setSpacingAfter(72f);
+            doc.add(paragraph1);
+            Paragraph paragraph2 = new Paragraph("Second paragraph");
+            doc.add(paragraph2);
+*/
 //            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);cell.setBorder(PdfPCell.NO_BORDER);
 //            table.addCell(cell);
 

@@ -21,7 +21,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.rembill_2.Msg.show;
+//import static com.example.rembill_2.Msg.show;
 
 public class FileSaveNLoad {
 
@@ -36,7 +36,7 @@ public class FileSaveNLoad {
 
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
-    String examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
+    String examSubject, examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
 
 
 
@@ -90,6 +90,9 @@ public class FileSaveNLoad {
             DataRow=myReader.readLine(); /// blank line separator
 
             String tempstr;
+
+            tempstr = myReader.readLine();
+            examSubject = tempstr;
 
             tempstr = myReader.readLine();
             examYear = tempstr;
@@ -156,6 +159,8 @@ public class FileSaveNLoad {
 
             myOutWriter.append("==== Details of Examination ====");
 
+            myOutWriter.append("\n");
+            myOutWriter.append(examSubject);
             myOutWriter.append("\n");
             myOutWriter.append(examYear);
             myOutWriter.append("\n");
@@ -328,13 +333,14 @@ public class FileSaveNLoad {
     }
 
     public void ShowExamDetails(Activity activity, final String e13, final String e14, final String e15, final String e16,
-                                 final String e17, final String e18, final String e19)
+                                 final String e17, final String e18, final String e19, final String e20)
     {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.examdetails);
 
+        final EditText et20 = dialog.findViewById(R.id.ExamSubject);
         final EditText et13 = dialog.findViewById(R.id.ExamYear);
         final EditText et14 = dialog.findViewById(R.id.ExamStartDate);
         final EditText et15 = dialog.findViewById(R.id.ExamEndDate);
@@ -348,6 +354,7 @@ public class FileSaveNLoad {
             @Override
             public void onClick(View v) {
 
+                examSubject = et20.getText().toString();
                 examYear = et13.getText().toString();
                 examStartDate = et14.getText().toString();
                 examEndDate = et15.getText().toString();
@@ -363,8 +370,8 @@ public class FileSaveNLoad {
             }
         });
 
-        et13.setText(e13);  et14.setText(e14);  et15.setText(e15);  et16.setText(e16);
-        et17.setText(e17);  et18.setText(e18);  et19.setText(e19);
+        et19.setText(e19);    et13.setText(e13);  et14.setText(e14);  et15.setText(e15);
+        et16.setText(e16);    et17.setText(e17);  et18.setText(e18);  et20.setText(e20);
 
         dialog.show();
         //  To Scroll the dialog box up when Virtual (Soft) keyboard appears
