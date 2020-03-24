@@ -32,9 +32,9 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     FileSaveNLoad FSNL = new FileSaveNLoad();
-    Message Msg = new Message();
+//    Message Msg = new Message();
     ExaminersBill EB = new ExaminersBill();
-    Msg msg = new Msg();
+  //  Msg msg = new Msg();
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
     ;
@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         StoragePermissionGranted();
+
+        EB.SetMA(this);
 //        if(!StoragePermissionGranted()) { return;}
 
         /// Iniitialized array with 20 empty strings
@@ -163,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View arg0) {
 
                 EB.CreatePDF();
-//                Msg.show("PDF Created");
+              Msg.Show("PDF Created",getApplicationContext());
             }
 
         });
@@ -200,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            Msg.show("Permission Granted");
+            Msg.Show("Permission Granted",getApplicationContext());
 
     }
 

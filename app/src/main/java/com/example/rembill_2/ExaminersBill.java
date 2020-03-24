@@ -223,6 +223,8 @@ public class ExaminersBill {
 //            table.addCell(cell);
 
             doc.close();
+            Msg.Show("From CreatePDF, in ExminersBill class",MA);
+
         }
         catch(Exception e){
             e.printStackTrace();
