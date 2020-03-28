@@ -90,7 +90,7 @@ public class FileSaveNLoad {
             DataRow=myReader.readLine(); /// blank line separator
 
             String tempstr;
-
+/*
             tempstr = myReader.readLine();
             examSubject = tempstr;
 
@@ -115,7 +115,7 @@ public class FileSaveNLoad {
 
             tempstr= myReader.readLine();
             remunerationPerStudent = tempstr;
-
+*/
             MA.ExamRelatedDetails.removeAll(MA.ExamRelatedDetails);
             while ((DataRow = myReader.readLine()) != null)
 
@@ -340,28 +340,28 @@ public class FileSaveNLoad {
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.examdetails);
 
-        final EditText et20 = dialog.findViewById(R.id.ExamSubject);
-        final EditText et13 = dialog.findViewById(R.id.ExamYear);
-        final EditText et14 = dialog.findViewById(R.id.ExamStartDate);
-        final EditText et15 = dialog.findViewById(R.id.ExamEndDate);
-        final EditText et16 = dialog.findViewById(R.id.NoExamDate);
-        final EditText et17 = dialog.findViewById(R.id.NoOfDaysOfExam);
-        final EditText et18 = dialog.findViewById(R.id.NoOfStudents);
-        final EditText et19 = dialog.findViewById(R.id.RemPerStudent);
+        final EditText et13 = dialog.findViewById(R.id.ExamSubject);
+        final EditText et14 = dialog.findViewById(R.id.ExamYear);
+        final EditText et15 = dialog.findViewById(R.id.ExamStartDate);
+        final EditText et16 = dialog.findViewById(R.id.ExamEndDate);
+        final EditText et17 = dialog.findViewById(R.id.NoExamDate);
+        final EditText et18 = dialog.findViewById(R.id.NoOfDaysOfExam);
+        final EditText et19 = dialog.findViewById(R.id.NoOfStudents);
+        final EditText et20 = dialog.findViewById(R.id.RemPerStudent);
 
         Button btnSubmit = (Button) dialog.findViewById(R.id.submitButton);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                examSubject = et20.getText().toString();
-                examYear = et13.getText().toString();
-                examStartDate = et14.getText().toString();
-                examEndDate = et15.getText().toString();
-                noExamDates = et16.getText().toString();
-                examNoOfDays = et17.getText().toString();
-                NoOfStudents = et18.getText().toString();
-                remunerationPerStudent = et19.getText().toString();
+                examSubject = et13.getText().toString();
+                examYear = et14.getText().toString();
+                examStartDate = et15.getText().toString();
+                examEndDate = et16.getText().toString();
+                noExamDates = et17.getText().toString();
+                examNoOfDays = et18.getText().toString();
+                NoOfStudents = et19.getText().toString();
+                remunerationPerStudent = et20.getText().toString();
 
 //                examEndDate = et18.getText().toString();
 

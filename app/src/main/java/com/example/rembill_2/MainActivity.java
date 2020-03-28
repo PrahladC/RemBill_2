@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
   //  Msg msg = new Msg();
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
-    ;
+
     String examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
     private Button buttonExternal, buttonInternal, buttonExaminationDetails, PintInternalBill, Load, Exit, PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         EB.SetMA(this);
 //        if(!StoragePermissionGranted()) { return;}
 
-        /// Iniitialized array with 20 empty strings
-        for (int i = 0; i < 22; i++) ExamRelatedDetails.add("");
+        /// Iniitialized array with 22 empty strings
+        for (int i = 0; i < 23; i++) ExamRelatedDetails.add("");
 
         Button btnLoad = (Button) findViewById(R.id.Load);
         btnLoad.setOnClickListener(new View.OnClickListener() {
@@ -100,12 +100,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                E1 = ExamRelatedDetails.get(9);
-                E2 = ExamRelatedDetails.get(10);
-                E3 = ExamRelatedDetails.get(11);
-                E4 = ExamRelatedDetails.get(12);
-                E5 = ExamRelatedDetails.get(13);
-                E6 = ExamRelatedDetails.get(14);
+                E1 = ExamRelatedDetails.get(10);
+                E2 = ExamRelatedDetails.get(11);
+                E3 = ExamRelatedDetails.get(12);
+                E4 = ExamRelatedDetails.get(13);
+                E5 = ExamRelatedDetails.get(14);
+                E6 = ExamRelatedDetails.get(15);
 //                Msg.show(E1);
 //                msg.Show(E1, );
 //                show(E1); show(E2); show(E3); show(E4); show(E5); show(E6);
@@ -121,12 +121,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                E7 = ExamRelatedDetails.get(16);
-                E8 = ExamRelatedDetails.get(17);
-                E9 = ExamRelatedDetails.get(18);
-                E10 = ExamRelatedDetails.get(19);
-                E11 = ExamRelatedDetails.get(20);
-                E12 = ExamRelatedDetails.get(21);
+                E7 = ExamRelatedDetails.get(17);
+                E8 = ExamRelatedDetails.get(18);
+                E9 = ExamRelatedDetails.get(19);
+                E10 = ExamRelatedDetails.get(20);
+                E11 = ExamRelatedDetails.get(21);
+                E12 = ExamRelatedDetails.get(22);
 
 //                show(E7); show(E8); show(E9); show(E10); show(E11); show(E12);
 
@@ -140,14 +140,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View arg0) {
-                E13 = ExamRelatedDetails.get(1);
-                E14 = ExamRelatedDetails.get(2);
-                E15 = ExamRelatedDetails.get(3);
-                E16 = ExamRelatedDetails.get(4);
-                E17 = ExamRelatedDetails.get(5);
-                E18 = ExamRelatedDetails.get(6);
-                E19 = ExamRelatedDetails.get(7);
-                E20 = ExamRelatedDetails.get(7);
+                E13 = ExamRelatedDetails.get(1);    Msg.Show(E13, getApplicationContext());
+                E14 = ExamRelatedDetails.get(2);    Msg.Show(E14, getApplicationContext());
+                E15 = ExamRelatedDetails.get(3);    Msg.Show(E15, getApplicationContext());
+                E16 = ExamRelatedDetails.get(4);    Msg.Show(E16, getApplicationContext());
+                E17 = ExamRelatedDetails.get(5);    Msg.Show(E17, getApplicationContext());
+                E18 = ExamRelatedDetails.get(6);    Msg.Show(E18, getApplicationContext());
+                E19 = ExamRelatedDetails.get(7);    Msg.Show(E19, getApplicationContext());
+                E20 = ExamRelatedDetails.get(8);    Msg.Show(E20, getApplicationContext());
 
 //              show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
 

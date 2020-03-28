@@ -1,5 +1,8 @@
 package com.example.rembill_2;
 
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Environment;
 import android.widget.Toast;
 
@@ -12,6 +15,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.CMYKColor;
+import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -56,8 +60,6 @@ public class ExaminersBill {
     String rootDir;
     public ArrayList<String> fileArray = new ArrayList<String>();
 
-
-
     void CreatePDF()
     {
         rootDir = Environment.getExternalStorageDirectory().getPath();
@@ -81,8 +83,6 @@ public class ExaminersBill {
             float [] pointColumnWidth = {150F};
             PdfPTable table = new PdfPTable(pointColumnWidth);
             PdfPCell cell = new PdfPCell();
-//            String year;
-//            year = MA.examYear;     //   show(year);
 
 //            PdfPTable table1 = new PdfPTable(4); // 4 columns.
 
@@ -100,7 +100,6 @@ public class ExaminersBill {
             Phrase  p4 = new Paragraph("BILL OF REMUNERATION OF INTERNAL/EXTERNAL EXAMINER", font1);
 //            doc.add( Chunk.NEWLINE );
 //            doc.add(new Paragraph("\n"));
-//            doc.add(new Paragraph(year));
             Phrase  p5 = new Paragraph("The Divisional Secretary,");
             Phrase  p6 = new Paragraph("Maharashtra State Board of Secondary");
             Phrase  p7 = new Paragraph("& Higher Secondary Education");
@@ -108,16 +107,28 @@ public class ExaminersBill {
             Phrase  p9 = new Paragraph("Vashi, Navi Mumbai 400703");
             Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  " + " PC ");
             Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
-                                                 "Practical Examination February / July -");
+                    "Practical Examination February / July -");
             Paragraph p12 = new Paragraph("at the" + "  P L A C E  O F  E X A M I N A T I O N " +
-                                                "                    Index No.of Jr.College - " + "  " + "J - 31.004.005");
-
+                    "                    Index No.of Jr.College - " + "  " + "J - 31.004.005");
 //            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE");
 //            Phrase p12 = new Paragraph("Practical Examination February / July" );
             Phrase  p13 = new Paragraph("Particulars");
             Phrase  p14 = new Paragraph("Amount");
-
-
+            Paragraph  p15 = new Paragraph("Amount due, to me as an EXTERNAL/INTERNAL Examiner at");
+            Paragraph  p16 = new Paragraph("the Examination center. Number ofdays of examination =" + "   " + "12");
+            Paragraph  p17 = new Paragraph("Actual Total number of candidates examined by me =" + "   " +"999");
+            Paragraph  p18 = new Paragraph("Excluding Absentees");
+            Paragraph  p19 = new Paragraph("Rs."+ "   05   " + "per candidate." + "          " + " 05 x 999 = 495 " );
+            Paragraph  p20 = new Paragraph("( Minimum of Rs.50/- irrespective of the number of candidates )");
+            Paragraph  p21 = new Paragraph("I hereby undertake to refund if any amount paid to me in excess of the amount due");
+            Paragraph  p22 = new Paragraph("Name of Jr. College where teaching" + "   " +"St. Andrews College - Bandra.");
+            Paragraph  p23 = new Paragraph("IndexNo.of Jr.College" + "   " +" J - 31.04.005 ");
+            Paragraph  p24 = new Paragraph("certified that the Examiner has actually examined the No. of candidates mentioned above.");
+            Paragraph  p25 = new Paragraph("Counter signature of the Head of the institution with stamp");
+            Paragraph  p26 = new Paragraph("Total", font1);
+            Paragraph  p27 = new Paragraph("Signature", font2);
+            Paragraph  p28 = new Paragraph("Residential Address", font2);
+            Paragraph  p29 = new Paragraph("Rs. " + "999", font1);
 
             ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
             doc.add(p1);
@@ -128,11 +139,8 @@ public class ExaminersBill {
             ((Paragraph) p4).setAlignment(Element.ALIGN_CENTER);
             doc.add(p4);
 
-//            ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
-//            doc.add(p1);
-
-           Phrase p0 = new Paragraph(" ");
-            ((Paragraph) p0).setAlignment(Element.ALIGN_LEFT);
+            Paragraph p0 = new Paragraph(" ");
+            p0.setAlignment(Element.ALIGN_LEFT);
             doc.add(p0);
 
             ((Paragraph) p5).setAlignment(Element.ALIGN_LEFT);
@@ -146,21 +154,19 @@ public class ExaminersBill {
             ((Paragraph) p9).setAlignment(Element.ALIGN_LEFT);
             doc.add(p9);
 //          Phrase p0 = new Paragraph(" ");
-            ((Paragraph) p0).setAlignment(Element.ALIGN_LEFT);
+            p0.setAlignment(Element.ALIGN_LEFT);
             doc.add(p0);
-            ((Paragraph) p10).setAlignment(Element.ALIGN_LEFT);
+            p10.setAlignment(Element.ALIGN_LEFT);
             p10.setSpacingAfter(9f);
             doc.add(p10);
 //            ((Paragraph) p0).setAlignment(Element.ALIGN_LEFT);
 //            doc.add(p0);
-           ((Paragraph) p11).setAlignment(Element.ALIGN_LEFT);
+            p11.setAlignment(Element.ALIGN_LEFT);
             p11.setSpacingAfter(9f);
-           doc.add(p11);
-            ((Paragraph) p12).setAlignment(Element.ALIGN_LEFT);
+            doc.add(p11);
+            p12.setAlignment(Element.ALIGN_LEFT);
             p12.setSpacingAfter(22f);
             doc.add(p12);
-
-
 
 // Creating a PdfCanvas object
 //            PdfCanvas canvas = new PdfCanvas(pdfPage);
@@ -186,14 +192,63 @@ public class ExaminersBill {
             canvas.moveTo(80*x/100, 61.75*y/100);          // Difference of 3.25 in y-coordinates
             canvas.lineTo(95*x/100, 61.75*y/100);          // Line in front of Examination February / July
 
-            canvas.moveTo(6.8*x/100, 59*y/100);            // Top Line of the Bill Table
-            canvas.lineTo(95*x/100, 59*y/100);             // Top Line of the Bill Table
+            canvas.moveTo(6.8*x/100, 59.5*y/100);          // Top First Line of the Bill Table
+            canvas.lineTo(95*x/100, 59.5*y/100);           // Top First Line of the Bill Table
 
-            canvas.moveTo(6.8*x/100, 56*y/100);            // Second Line of the Bill Table
-            canvas.lineTo(95*x/100, 56*y/100);             // Second Line of the Bill Table
+            canvas.moveTo(6.8*x/100, 57*y/100);            // Top Second Line of the Bill Table
+            canvas.lineTo(95*x/100, 57*y/100);             // Top Second Line of the Bill Table
+
+            canvas.moveTo(6.8*x/100, 41*y/100);            // Bottom Second Line of the Bill Table
+            canvas.lineTo(95*x/100, 41*y/100);             // Bottom Second Line of the Bill Table
+
+            canvas.moveTo(6.8*x/100, 38.5*y/100);            // Bottom First Line of the Bill Table
+            canvas.lineTo(95*x/100, 38.5*y/100);             // Bottom First Line of the Bill Table
+
+            canvas.moveTo(66*x/100, 59.5*y/100);           // Vertical Line of the Bill Table
+            canvas.lineTo(66*x/100, 38.5*y/100);             // Vertical Line of the Bill Table
+
+            canvas.moveTo(58*x/100, 52*y/100);             // Line after equal to sign in side the Bill Table
+            canvas.lineTo(64*x/100, 52*y/100);             // Line after equal to sign in side the Bill Table
+
+            canvas.moveTo(55*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
+            canvas.lineTo(63*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
+
+            canvas.moveTo(10.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
+            canvas.lineTo(14.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
+
+            canvas.moveTo(33*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
+            canvas.lineTo(50*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
+
+            canvas.moveTo(50*x/100, 33*y/100);             // Signature line out side the Bill Table
+            canvas.lineTo(95*x/100, 33*y/100);             // Signature line out side the Bill Table
+
+            canvas.moveTo(50*x/100, 30*y/100);             // Line 1st below signature line
+            canvas.lineTo(95*x/100, 30*y/100);             // Line 1st below signature line
+
+            canvas.moveTo(50*x/100, 27*y/100);             // Line 2nd below signature line
+            canvas.lineTo(95*x/100, 27*y/100);             // Line 2nd below signature line
+
+            canvas.moveTo(50*x/100, 24*y/100);             // Line 3rd below signature line
+            canvas.lineTo(95*x/100, 24*y/100);             // Line 3rd below signature line
+
+            canvas.moveTo(40*x/100, 19.5*y/100);             // Line 4th below signature line
+            canvas.lineTo(95*x/100, 19.5*y/100);             // Line 4th below signature line
+
+            canvas.moveTo(28*x/100, 16.8*y/100);             // Line 5th below signature line
+            canvas.lineTo(42*x/100, 16.8*y/100);             // Line 5th below signature line
+
+            canvas.moveTo(60*x/100, 41*y/100);           // Vertical Line of the Bill Table
+            canvas.lineTo(60*x/100, 38.5*y/100);             // Vertical Line of the Bill Table
+
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p26, 374, 332, 0);     // Total
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p27, 274, 280, 0);     // Signature
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p28, 252, 252, 0);     // Residential address
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p29, 450, 465, 0);     // Total Amount on Toop
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p29, 450, 332, 0);     // Total Amount at Bottom
 
 
             canvas.closePathStroke();
+
 
             float col2[]= {2*x/3,x/3};
             PdfPTable table2 = new PdfPTable(col2);
@@ -209,21 +264,97 @@ public class ExaminersBill {
             cell.setBorder(PdfPCell.NO_BORDER);
             table2.addCell(cell);
 
-            table2.setSpacingBefore(5f);
+/*            cell = new PdfPCell(new Phrase(p15));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
+            cell.setBorder(PdfPCell.NO_BORDER);
+//            table2.addCell(cell);
+
+            cell = new PdfPCell(new Phrase(" PC "));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
+            cell.setBorder(PdfPCell.NO_BORDER);
+            table2.addCell(cell);
+*/
+
+            //           table2.setSpacingBefore(5f);
 
             doc.add(table2);
 
-/*            Paragraph paragraph1 = new Paragraph("First paragraph");
-            paragraph1.setSpacingAfter(72f);
-            doc.add(paragraph1);
-            Paragraph paragraph2 = new Paragraph("Second paragraph");
-            doc.add(paragraph2);
-*/
-//            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);cell.setBorder(PdfPCell.NO_BORDER);
-//            table.addCell(cell);
+            p15.setSpacingBefore(4f);
+            doc.add(p15);
+            p16.setSpacingBefore(4f);
+            doc.add(p16);
+            p17.setSpacingBefore(4f);
+            doc.add(p17);
+            p18.setSpacingBefore(4f);
+            doc.add(p18);
+            p19.setSpacingBefore(4f);
+            doc.add(p19);
+            p20.setSpacingBefore(4f);
+            doc.add(p20);
+//            p26.setSpacingBefore(4f);
+//            p26.setAlignment(Element.ALIGN_CENTER);
+//            doc.add(p26);
+//            p0.setSpacingBefore(0f);  doc.add(p0);
+            p0.setSpacingBefore(0f);  doc.add(p0);
+            p21.setAlignment(Element.ALIGN_CENTER);
+            p21.setSpacingBefore(4f); doc.add(p21);
+
+//            Paragraph  p27 = new Paragraph("Signature", font2);
+//            p27.setAlignment(Element.ALIGN_CENTER);
+//            p27.setSpacingBefore(4f); doc.add(p27);
+
+            float col3[]= {x/2, x/2};
+            PdfPTable table3 = new PdfPTable(col3);
+            table3.setWidthPercentage(90);
+
+            cell = new PdfPCell(new Phrase("  "));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
+            cell.setBorder(PdfPCell.NO_BORDER);
+            table3.addCell(cell);
+
+            cell = new PdfPCell(new Phrase("  " ));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_LEFT);
+            cell.setBorder(PdfPCell.NO_BORDER);
+            table3.addCell(cell);
+
+            float [] ColumnWidth = {50F};
+//            PdfPTable table3 = new PdfPTable(ColumnWidth);
+
+            cell = new PdfPCell(new Paragraph("On revenue stamp\n" + "when the amount\n" +
+                    "exceeds Rs.5000/-", font2));
+            cell.setHorizontalAlignment(100);
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cell.setFixedHeight(70);
+            table3.setWidthPercentage(25);
+            table3.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table3.addCell(cell);
+            doc.add(table3);
+
+            cell = new PdfPCell(new Phrase("  " ));
+            cell.setHorizontalAlignment(PdfPCell.ALIGN_RIGHT);
+            cell.setBorder(PdfPCell.NO_BORDER);
+            table3.addCell(cell);
+
+            doc.add(table3);
+
+            p0.setSpacingBefore(4f);  doc.add(p0);
+//            p0.setSpacingBefore(4f);  doc.add(p0);
+//            p0.setSpacingBefore(4f);  doc.add(p0);
+//            p0.setSpacingBefore(4f);  doc.add(p0);
+//            p0.setSpacingBefore(4f);  doc.add(p0);
+
+            p22.setAlignment(Element.ALIGN_LEFT);
+            p22.setSpacingBefore(4f); doc.add(p22);
+            p23.setAlignment(Element.ALIGN_LEFT);
+            p23.setSpacingBefore(4f); doc.add(p23);
+            p24.setAlignment(Element.ALIGN_LEFT);
+            p24.setSpacingBefore(4f); doc.add(p24);
+            p25.setAlignment(Element.ALIGN_LEFT);
+            p25.setSpacingBefore(4f); doc.add(p25);
+
 
             doc.close();
-            Msg.Show("From CreatePDF, in ExminersBill class",MA);
+//            Msg.Show("From CreatePDF, in ExminersBill class",MA);
 
         }
         catch(Exception e){
