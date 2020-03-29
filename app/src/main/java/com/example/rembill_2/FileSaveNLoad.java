@@ -125,18 +125,13 @@ public class FileSaveNLoad {
 
             myReader.close();
 
-
-
         }
         catch (Exception e)
         {
             Toast.makeText(MA,e.getMessage(),Toast.LENGTH_SHORT).show();
         }
 
-
     }
-
-
 
     void SaveToFile() {
 
@@ -222,7 +217,7 @@ public class FileSaveNLoad {
 //        show(" File Saved !!!");
     }
 
-    public void ShowInternalExaminerDetails(Activity activity, final String e1,final String e2, final String e3,final String e4,
+    public void ShowInternalExaminerDetails(Activity activity, String e1,final String e2, final String e3,final String e4,
                                             final String e5, final String e6)
     {
         final Dialog dialog = new Dialog(activity);

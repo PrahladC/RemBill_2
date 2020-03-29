@@ -140,14 +140,14 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View arg0) {
-                E13 = ExamRelatedDetails.get(1);    Msg.Show(E13, getApplicationContext());
-                E14 = ExamRelatedDetails.get(2);    Msg.Show(E14, getApplicationContext());
-                E15 = ExamRelatedDetails.get(3);    Msg.Show(E15, getApplicationContext());
-                E16 = ExamRelatedDetails.get(4);    Msg.Show(E16, getApplicationContext());
-                E17 = ExamRelatedDetails.get(5);    Msg.Show(E17, getApplicationContext());
-                E18 = ExamRelatedDetails.get(6);    Msg.Show(E18, getApplicationContext());
-                E19 = ExamRelatedDetails.get(7);    Msg.Show(E19, getApplicationContext());
-                E20 = ExamRelatedDetails.get(8);    Msg.Show(E20, getApplicationContext());
+                E13 = ExamRelatedDetails.get(1);   //  Msg.Show(E13, getApplicationContext());
+                E14 = ExamRelatedDetails.get(2);   //  Msg.Show(E14, getApplicationContext());
+                E15 = ExamRelatedDetails.get(3);   //  Msg.Show(E15, getApplicationContext());
+                E16 = ExamRelatedDetails.get(4);   //  Msg.Show(E16, getApplicationContext());
+                E17 = ExamRelatedDetails.get(5);   //  Msg.Show(E17, getApplicationContext());
+                E18 = ExamRelatedDetails.get(6);   //  Msg.Show(E18, getApplicationContext());
+                E19 = ExamRelatedDetails.get(7);   //  Msg.Show(E19, getApplicationContext());
+                E20 = ExamRelatedDetails.get(8);   //  Msg.Show(E20, getApplicationContext());
 
 //              show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
 
