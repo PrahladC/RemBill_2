@@ -94,6 +94,28 @@ public class ExaminersBill {
             table.addCell(cell1);
             doc.add(table);
 //            doc.add(new Paragraph(year));
+            Paragraph P1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION \n" +
+                                                "MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703 \n" +
+                                                "H.S.C. PRACTICAL EXAMINATION FEBRUARY/JULY - \n" +
+                                                "BILL OF REMUNERATION OF INTERNAL/EXTERNAL EXAMINER" , font1 );
+            Paragraph P2 = new Paragraph("The Divisional Secretary, \n" + "Maharashtra State Board of Secondary \n" +
+                                                "& Higher Secondary Education \n" + "Mumbai Divisional Board, \n" +
+                                                "Vashi, Navi Mumbai 400703" );
+
+            Paragraph P5 = new Paragraph("Amount due, to me as an EXTERNAL/INTERNAL Examiner at \n" +
+                                               "the Examination center. Number ofdays of examination = " + "   " + "12" + " \n" +
+                                               "Actual Total number of candidates examined by me = " + "   " +" 999 " + " \n" +
+                                               "Excluding Absentees \n" +
+                                               "Rs." + "  " + "05" + "per candidate." + "     " + " 05 x 999 = 495 \n" +
+                                               "( Minimum of Rs.50/- irrespective of the number of candidates )" );
+
+            Paragraph P6 = new Paragraph("Name of Jr. College where teaching " + "   " + "  St. Andrews College - Bandra. "+ "\n" +
+                                               "IndexNo.of Jr.College " + "  " + " J - 31.04.005 " + "\n" +
+                                               "certified that the Examiner has actually examined the No. of candidates mentioned above. \n" +
+                                               "Counter signature of the Head of the institution with stamp" );
+
+
+
             Paragraph p0 = new Paragraph(" ");
             Phrase  p1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION", font1 );
             Phrase  p2 = new Paragraph("MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703", font1);
@@ -106,7 +128,7 @@ public class ExaminersBill {
             Phrase  p7 = new Paragraph("& Higher Secondary Education");
             Phrase  p8 = new Paragraph("Mumbai Divisional Board,");
             Phrase  p9 = new Paragraph("Vashi, Navi Mumbai 400703");
-            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" );   //   + "  "  + MA.internalname);
+            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  "  + MA.internalname );   //   + "  "  + MA.internalname);
 //            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
 //                    "Practical Examination February / July -");
             Paragraph p11a = new Paragraph("Subject");
@@ -127,7 +149,7 @@ public class ExaminersBill {
             Paragraph  p19 = new Paragraph("Rs."+ "   05   " + "per candidate." + "          " + " 05 x 999 = 495 " );
             Paragraph  p20 = new Paragraph("( Minimum of Rs.50/- irrespective of the number of candidates )");
             Paragraph  p21 = new Paragraph("I hereby undertake to refund if any amount paid to me in excess of the amount due");
-            Paragraph  p22 = new Paragraph("Name of Jr. College where teaching" + "   " +"St. Andrews College - Bandra.");
+            Paragraph  p22 = new Paragraph("Name of Jr. College where teaching" + "   " +" St. Andrews College - Bandra.");
             Paragraph  p23 = new Paragraph("IndexNo.of Jr.College" + "   " + " J - 31.04.005 ");
             Paragraph  p24 = new Paragraph("certified that the Examiner has actually examined the No. of candidates mentioned above.");
             Paragraph  p25 = new Paragraph("Counter signature of the Head of the institution with stamp");
@@ -144,19 +166,26 @@ public class ExaminersBill {
             Paragraph  p35 = new Paragraph("Recieved Payment", font2);
             Paragraph  p36 = new Paragraph("Signature of payee", font2);
 
-            ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
-            doc.add(p1);
+            P1.setAlignment(Element.ALIGN_CENTER);
+            doc.add(P1);
+
+/*            ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
+//            doc.add(p1);
             ((Paragraph) p2).setAlignment(Element.ALIGN_CENTER);
             doc.add(p2);
             ((Paragraph) p3).setAlignment(Element.ALIGN_CENTER);
             doc.add(p3);
             ((Paragraph) p4).setAlignment(Element.ALIGN_CENTER);
             doc.add(p4);
-
+*/
             p0.setAlignment(Element.ALIGN_LEFT);
             doc.add(p0);
 
-            ((Paragraph) p5).setAlignment(Element.ALIGN_LEFT);
+            P2.setAlignment(Element.ALIGN_LEFT);
+            doc.add(P2);
+
+
+/*            ((Paragraph) p5).setAlignment(Element.ALIGN_LEFT);
             doc.add(p5);
             ((Paragraph) p6).setAlignment(Element.ALIGN_LEFT);
             doc.add(p6);
@@ -167,8 +196,18 @@ public class ExaminersBill {
             ((Paragraph) p9).setAlignment(Element.ALIGN_LEFT);
             doc.add(p9);
 //          Phrase p0 = new Paragraph(" ");
+ */
             p0.setAlignment(Element.ALIGN_LEFT);
             doc.add(p0);
+
+            P5.setSpacingBefore(110f);
+            P5.setLeading(22f);
+            P5.setAlignment(Element.ALIGN_LEFT);
+            doc.add(P5);
+
+            P6.setSpacingBefore(170f);
+            P6.setAlignment(Element.ALIGN_LEFT);
+            doc.add(P6);
 
 /*            p10.setAlignment(Element.ALIGN_LEFT);
             p10.setSpacingAfter(9f);
@@ -265,18 +304,19 @@ public class ExaminersBill {
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p13, 216, 487, 0);    // Particulars
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p14, 481, 487, 0);    // Amount
 
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p15, 205, 460, 0);    // 1st line inside Bill
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p16, 203, 438, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p17, 197, 416, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p18, 96, 394, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p19, 162, 372, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p20, 208, 350, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p15, 205, 460, 0);    // 1st line inside Bill
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p16, 203, 438, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p17, 197, 416, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p18, 96, 394, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p19, 162, 372, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p20, 208, 350, 0);
+
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p21, 305, 314, 0);
 
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p22, 221, 165, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p23, 139, 144, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p24, 278, 121, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p25, 194, 99, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p22, 221, 165, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p23, 139, 144, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p24, 278, 121, 0);
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p25, 194, 99, 0);
 
 //            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p26, 374, 332, 0);     // Total
 //            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p27, 274, 280, 0);     // Signature
