@@ -106,9 +106,9 @@ public class ExaminersBill {
             Phrase  p7 = new Paragraph("& Higher Secondary Education");
             Phrase  p8 = new Paragraph("Mumbai Divisional Board,");
             Phrase  p9 = new Paragraph("Vashi, Navi Mumbai 400703");
-            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  " );  //   + MA.internalname);
-            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
-                    "Practical Examination February / July -");
+            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" );   //   + "  "  + MA.internalname);
+//            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
+//                    "Practical Examination February / July -");
             Paragraph p11a = new Paragraph("Subject");
             Paragraph p11b = new Paragraph("Practical Examination February / July -" + "  " + "2020");
 
@@ -128,7 +128,7 @@ public class ExaminersBill {
             Paragraph  p20 = new Paragraph("( Minimum of Rs.50/- irrespective of the number of candidates )");
             Paragraph  p21 = new Paragraph("I hereby undertake to refund if any amount paid to me in excess of the amount due");
             Paragraph  p22 = new Paragraph("Name of Jr. College where teaching" + "   " +"St. Andrews College - Bandra.");
-            Paragraph  p23 = new Paragraph("IndexNo.of Jr.College" + "   " +" J - 31.04.005 ");
+            Paragraph  p23 = new Paragraph("IndexNo.of Jr.College" + "   " + " J - 31.04.005 ");
             Paragraph  p24 = new Paragraph("certified that the Examiner has actually examined the No. of candidates mentioned above.");
             Paragraph  p25 = new Paragraph("Counter signature of the Head of the institution with stamp");
             Phrase  p26 = new Paragraph("Total");
@@ -214,11 +214,11 @@ public class ExaminersBill {
             canvas.moveTo(6.8*x/100, 41*y/100);            // Bottom Second Line of the Bill Table
             canvas.lineTo(95*x/100, 41*y/100);             // Bottom Second Line of the Bill Table
 
-            canvas.moveTo(6.8*x/100, 38.5*y/100);          // Bottom First Line of the Bill Table
-            canvas.lineTo(95*x/100, 38.5*y/100);           // Bottom First Line of the Bill Table
+            canvas.moveTo(6.8*x/100, 39*y/100);          // Bottom First Line of the Bill Table
+            canvas.lineTo(95*x/100, 39*y/100);           // Bottom First Line of the Bill Table
 
             canvas.moveTo(66*x/100, 59.5*y/100);           // Vertical Line of the Bill Table
-            canvas.lineTo(66*x/100, 38.5*y/100);           // Vertical Line of the Bill Table
+            canvas.lineTo(66*x/100, 39*y/100);             // Vertical Line of the Bill Table
 
             canvas.moveTo(58*x/100, 52*y/100);             // Line after equal to sign in side the Bill Table
             canvas.lineTo(64*x/100, 52*y/100);             // Line after equal to sign in side the Bill Table
@@ -250,8 +250,8 @@ public class ExaminersBill {
             canvas.moveTo(28*x/100, 16.8*y/100);           // Line 5th below signature line
             canvas.lineTo(42*x/100, 16.8*y/100);           // Line 5th below signature line
 
-            canvas.moveTo(60*x/100, 41*y/100);             // Vertical Line of the Bill Table
-            canvas.lineTo(60*x/100, 38.5*y/100);           // Vertical Line of the Bill Table
+            canvas.moveTo(60*x/100, 41*y/100);             // Vertical Line of the Bill Table -> Total
+            canvas.lineTo(60*x/100, 39*y/100);             // Vertical Line of the Bill Table -> Total
 
             canvas.rectangle(60, 210, 64, 70);
 
@@ -271,10 +271,10 @@ public class ExaminersBill {
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p18, 96, 394, 0);
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p19, 162, 372, 0);
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p20, 208, 350, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p21, 305, 310, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p21, 305, 314, 0);
 
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p22, 221, 165, 0);
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p23, 139, 142, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p23, 139, 144, 0);
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p24, 278, 121, 0);
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p25, 194, 99, 0);
 
