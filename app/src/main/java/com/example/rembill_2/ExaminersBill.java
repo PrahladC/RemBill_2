@@ -37,6 +37,8 @@ public class ExaminersBill {
     public MainActivity MA;
     public void SetMA(MainActivity MA){this.MA=MA;}
 
+    FileSaveNLoad FSNL = new FileSaveNLoad();
+
     public void show(String tempstring)
     {
         Toast.makeText(MA,tempstring,Toast.LENGTH_SHORT).show();
@@ -51,8 +53,6 @@ public class ExaminersBill {
     static Font font2 = new Font(Font.FontFamily.TIMES_ROMAN, 10,
             Font.NORMAL);
 
-    FileSaveNLoad FSNL = new FileSaveNLoad();
-
 //    void SetMA(MainActivity MA) {
 //        this.MA = MA;
 //    }
@@ -60,10 +60,10 @@ public class ExaminersBill {
     String rootDir;
     public ArrayList<String> fileArray = new ArrayList<String>();
 
-    void CreatePDF()
+    void CreateInternalPDF()
     {
         rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" + "New.pdf";
+        String pdfFileNameWithPath = rootDir + "/" + "New1.pdf";
 
         try {
             Document doc = new Document();
@@ -106,11 +106,16 @@ public class ExaminersBill {
             Phrase  p7 = new Paragraph("& Higher Secondary Education");
             Phrase  p8 = new Paragraph("Mumbai Divisional Board,");
             Phrase  p9 = new Paragraph("Vashi, Navi Mumbai 400703");
-            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  " + " PC ");
+            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  " );  //   + MA.internalname);
             Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
                     "Practical Examination February / July -");
+            Paragraph p11a = new Paragraph("Subject");
+            Paragraph p11b = new Paragraph("Practical Examination February / July -" + "  " + "2020");
+
             Paragraph p12 = new Paragraph("at the" + "  P L A C E  O F  E X A M I N A T I O N " +
                     "                    Index No.of Jr.College - " + "  " + "J - 31.004.005");
+            Paragraph p12a = new Paragraph("at the" );
+            Paragraph p12b = new Paragraph("Index No.of Jr.College - " + "  " + "J - 31.004.005" );
 //            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE");
 //            Phrase p12 = new Paragraph("Practical Examination February / July" );
             Phrase  p13 = new Paragraph("Particulars");
@@ -164,7 +169,8 @@ public class ExaminersBill {
 //          Phrase p0 = new Paragraph(" ");
             p0.setAlignment(Element.ALIGN_LEFT);
             doc.add(p0);
-            p10.setAlignment(Element.ALIGN_LEFT);
+
+/*            p10.setAlignment(Element.ALIGN_LEFT);
             p10.setSpacingAfter(9f);
             doc.add(p10);
 //            ((Paragraph) p0).setAlignment(Element.ALIGN_LEFT);
@@ -175,13 +181,12 @@ public class ExaminersBill {
             p12.setAlignment(Element.ALIGN_LEFT);
             p12.setSpacingAfter(22f);
             doc.add(p12);
-
+*/
 // Creating a PdfCanvas object
 //            PdfCanvas canvas = new PdfCanvas(pdfPage);
             PdfContentByte canvas = docWriter.getDirectContent();
-            CMYKColor blackColor = new CMYKColor(0.f, 1.f, 0.f, 0.f);
+            CMYKColor blackColor = new CMYKColor(0.f, 0.f, 0.f, 1.f);
             canvas.setColorStroke(blackColor);
-
 
             canvas.moveTo((25.5)*x/100, 68.25*y/100);
             canvas.lineTo(95*x/100, 68.25*y/100);          // Line in front of Name
@@ -192,7 +197,7 @@ public class ExaminersBill {
             canvas.moveTo(80*x/100, 65*y/100);             // Difference of 3.25 in y-coordinates
             canvas.lineTo(95*x/100, 65*y/100);             // Line in front of Examination February / July
             // If we add length of the Subject String
-            // i.e x-coordinate of .lineto = x-coordinate of .moveto + l(Sunject String) + 5
+            // i.e x-coordinate of .lineto = x-coordinate of .moveto + l(Subject String) + 5
             //  makes the line flexible
             canvas.moveTo(12*x/100, 61.75*y/100);          // Difference of 3.25 in y-coordinates
             canvas.lineTo(58*x/100, 61.75*y/100);          // Line in front of at the
@@ -209,11 +214,11 @@ public class ExaminersBill {
             canvas.moveTo(6.8*x/100, 41*y/100);            // Bottom Second Line of the Bill Table
             canvas.lineTo(95*x/100, 41*y/100);             // Bottom Second Line of the Bill Table
 
-            canvas.moveTo(6.8*x/100, 38.5*y/100);            // Bottom First Line of the Bill Table
-            canvas.lineTo(95*x/100, 38.5*y/100);             // Bottom First Line of the Bill Table
+            canvas.moveTo(6.8*x/100, 38.5*y/100);          // Bottom First Line of the Bill Table
+            canvas.lineTo(95*x/100, 38.5*y/100);           // Bottom First Line of the Bill Table
 
             canvas.moveTo(66*x/100, 59.5*y/100);           // Vertical Line of the Bill Table
-            canvas.lineTo(66*x/100, 38.5*y/100);             // Vertical Line of the Bill Table
+            canvas.lineTo(66*x/100, 38.5*y/100);           // Vertical Line of the Bill Table
 
             canvas.moveTo(58*x/100, 52*y/100);             // Line after equal to sign in side the Bill Table
             canvas.lineTo(64*x/100, 52*y/100);             // Line after equal to sign in side the Bill Table
@@ -239,19 +244,39 @@ public class ExaminersBill {
             canvas.moveTo(50*x/100, 24*y/100);             // Line 3rd below signature line
             canvas.lineTo(95*x/100, 24*y/100);             // Line 3rd below signature line
 
-            canvas.moveTo(40*x/100, 19.3*y/100);             // Line 4th below signature line
-            canvas.lineTo(95*x/100, 19.3*y/100);             // Line 4th below signature line
+            canvas.moveTo(40*x/100, 19.3*y/100);           // Line 4th below signature line
+            canvas.lineTo(95*x/100, 19.3*y/100);           // Line 4th below signature line
 
-            canvas.moveTo(28*x/100, 16.8*y/100);             // Line 5th below signature line
-            canvas.lineTo(42*x/100, 16.8*y/100);             // Line 5th below signature line
+            canvas.moveTo(28*x/100, 16.8*y/100);           // Line 5th below signature line
+            canvas.lineTo(42*x/100, 16.8*y/100);           // Line 5th below signature line
 
-            canvas.moveTo(60*x/100, 41*y/100);           // Vertical Line of the Bill Table
-            canvas.lineTo(60*x/100, 38.5*y/100);             // Vertical Line of the Bill Table
+            canvas.moveTo(60*x/100, 41*y/100);             // Vertical Line of the Bill Table
+            canvas.lineTo(60*x/100, 38.5*y/100);           // Vertical Line of the Bill Table
 
             canvas.rectangle(60, 210, 64, 70);
 
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p13, 216, 487, 0);   // Particulars
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p14, 481, 487, 0);   // Amount
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p10,  96, 576, 0);    // Name Internal
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11a, 60, 549, 0);    // Subject
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11b, 389, 549, 0);   // Year of Exam
+
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p12a, 55, 522, 0);    // at - College Name
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p12b, 455, 522, 0);   // Index No. of College
+
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p13, 216, 487, 0);    // Particulars
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p14, 481, 487, 0);    // Amount
+
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p15, 205, 460, 0);    // 1st line inside Bill
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p16, 203, 438, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p17, 197, 416, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p18, 96, 394, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p19, 162, 372, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p20, 208, 350, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p21, 305, 310, 0);
+
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p22, 221, 165, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p23, 139, 142, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p24, 278, 121, 0);
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p25, 194, 99, 0);
 
 //            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p26, 374, 332, 0);     // Total
 //            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p27, 274, 280, 0);     // Signature
@@ -276,7 +301,7 @@ public class ExaminersBill {
 
             canvas.closePathStroke();
 
-            doc.add(p0);
+/*            doc.add(p0);
             p15.setSpacingBefore(4f);
             doc.add(p15);
             p16.setSpacingBefore(4f);
@@ -295,7 +320,8 @@ public class ExaminersBill {
             p21.setSpacingBefore(4f);
             doc.add(p21);
 
-            p0.setSpacingBefore(105f);  doc.add(p0);
+            p0.setSpacingBefore(105f);
+            doc.add(p0);
 
             p22.setAlignment(Element.ALIGN_LEFT);
             p22.setSpacingBefore(4f); doc.add(p22);
@@ -305,7 +331,7 @@ public class ExaminersBill {
             p24.setSpacingBefore(4f); doc.add(p24);
             p25.setAlignment(Element.ALIGN_LEFT);
             p25.setSpacingBefore(4f); doc.add(p25);
-
+*/
 
             doc.close();
 //            Msg.Show("From CreatePDF, in ExminersBill class",MA);

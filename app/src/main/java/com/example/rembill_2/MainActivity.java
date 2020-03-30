@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
 
-    String examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
+    String examSubject, examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
     private Button buttonExternal, buttonInternal, buttonExaminationDetails, PintInternalBill, Load, Exit, PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
@@ -111,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
 //                show(E1); show(E2); show(E3); show(E4); show(E5); show(E6);
 
                 FSNL.ShowInternalExaminerDetails(MainActivity.this, E1, E2, E3, E4, E5, E6);
+                internalname = E1;          internalCollegeName = E2;   internalColIndex = E3;
+                internalAddressLine1 = E4;  internalAddressLine2 = E5;  internalAddressLine3 = E6;
             }
 
         });
@@ -131,6 +133,8 @@ public class MainActivity extends AppCompatActivity {
 //                show(E7); show(E8); show(E9); show(E10); show(E11); show(E12);
 
                 FSNL.ShowExternalExaminerDetails(MainActivity.this, E7, E8, E9, E10, E11, E12);
+                externalname = E7;          externalCollegeName = E8;    externalColIndex = E9;
+                externalAddressLine1 = E10; externalAddressLine2 = E11;  externalAddressLine3 = E12;
             }
 
         });
@@ -152,6 +156,8 @@ public class MainActivity extends AppCompatActivity {
 //              show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
 
                 FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19, E20);
+                examSubject = E13;          examYear = E14;         examStartDate = E15;    examEndDate = E16;
+                noExamDates = E17;          examNoOfDays = E18;     NoOfStudents = E19;     remunerationPerStudent = E20;
             }
 
         });
@@ -164,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                EB.CreatePDF();
+                EB.CreateInternalPDF();
               Msg.Show("PDF Created",getApplicationContext());
             }
 
