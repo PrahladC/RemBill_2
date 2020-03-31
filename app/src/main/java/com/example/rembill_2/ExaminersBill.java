@@ -82,16 +82,16 @@ public class ExaminersBill {
 
             float [] pointColumnWidth = {150F};
             PdfPTable table = new PdfPTable(pointColumnWidth);
-            PdfPCell cell = new PdfPCell();
+//            PdfPCell cell = new PdfPCell();
 
 //            PdfPTable table1 = new PdfPTable(4); // 4 columns.
 
-            PdfPCell cell1 = new PdfPCell(new Paragraph(" C - 2 / P2 - 13"));
-            cell1.setHorizontalAlignment(350);
-            cell1.setFixedHeight(20);
+            PdfPCell cell = new PdfPCell(new Paragraph(" C - 2 / P2 - 13"));
+            cell.setHorizontalAlignment(350);
+            cell.setFixedHeight(20);
             table.setWidthPercentage(16);
             table.setHorizontalAlignment(Element.ALIGN_RIGHT);
-            table.addCell(cell1);
+            table.addCell(cell);
             doc.add(table);
 //            doc.add(new Paragraph(year));
             Paragraph P1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION \n" +
@@ -106,7 +106,7 @@ public class ExaminersBill {
                                                "the Examination center. Number ofdays of examination = " + "   " + "12" + " \n" +
                                                "Actual Total number of candidates examined by me = " + "   " +" 999 " + " \n" +
                                                "Excluding Absentees \n" +
-                                               "Rs." + "  " + "05" + "per candidate." + "     " + " 05 x 999 = 495 \n" +
+                                               "Rs. " + "  " +  MA.remunerationPerStudent  + "     " + "per candidate." + "     " + " 05 x 999 = 495 \n" +
                                                "( Minimum of Rs.50/- irrespective of the number of candidates )" );
 
             Paragraph P6 = new Paragraph("Name of Jr. College where teaching " + "   " + "  St. Andrews College - Bandra. "+ "\n" +
@@ -117,7 +117,7 @@ public class ExaminersBill {
 
 
             Paragraph p0 = new Paragraph(" ");
-            Phrase  p1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION", font1 );
+/*            Phrase  p1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION", font1 );
             Phrase  p2 = new Paragraph("MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703", font1);
             Phrase  p3 = new Paragraph("H.S.C. PRACTICAL EXAMINATION FEBRUARY/JULY - " , font1);
             Phrase  p4 = new Paragraph("BILL OF REMUNERATION OF INTERNAL/EXTERNAL EXAMINER", font1);
@@ -128,10 +128,11 @@ public class ExaminersBill {
             Phrase  p7 = new Paragraph("& Higher Secondary Education");
             Phrase  p8 = new Paragraph("Mumbai Divisional Board,");
             Phrase  p9 = new Paragraph("Vashi, Navi Mumbai 400703");
+*/
             Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  "  + MA.internalname );   //   + "  "  + MA.internalname);
 //            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
 //                    "Practical Examination February / July -");
-            Paragraph p11a = new Paragraph("Subject");
+            Paragraph p11a = new Paragraph("Subject  " + MA.examSubject);
             Paragraph p11b = new Paragraph("Practical Examination February / July -" + "  " + "2020");
 
             Paragraph p12 = new Paragraph("at the" + "  P L A C E  O F  E X A M I N A T I O N " +
@@ -142,17 +143,20 @@ public class ExaminersBill {
 //            Phrase p12 = new Paragraph("Practical Examination February / July" );
             Phrase  p13 = new Paragraph("Particulars");
             Phrase  p14 = new Paragraph("Amount");
-            Paragraph  p15 = new Paragraph("Amount due, to me as an EXTERNAL/INTERNAL Examiner at");
+/*            Paragraph  p15 = new Paragraph("Amount due, to me as an EXTERNAL/INTERNAL Examiner at");
             Paragraph  p16 = new Paragraph("the Examination center. Number ofdays of examination =" + "   " + "12");
             Paragraph  p17 = new Paragraph("Actual Total number of candidates examined by me =" + "   " +"999");
             Paragraph  p18 = new Paragraph("Excluding Absentees");
             Paragraph  p19 = new Paragraph("Rs."+ "   05   " + "per candidate." + "          " + " 05 x 999 = 495 " );
             Paragraph  p20 = new Paragraph("( Minimum of Rs.50/- irrespective of the number of candidates )");
+*/
             Paragraph  p21 = new Paragraph("I hereby undertake to refund if any amount paid to me in excess of the amount due");
-            Paragraph  p22 = new Paragraph("Name of Jr. College where teaching" + "   " +" St. Andrews College - Bandra.");
+
+/*            Paragraph  p22 = new Paragraph("Name of Jr. College where teaching" + "   " +" St. Andrews College - Bandra.");
             Paragraph  p23 = new Paragraph("IndexNo.of Jr.College" + "   " + " J - 31.04.005 ");
             Paragraph  p24 = new Paragraph("certified that the Examiner has actually examined the No. of candidates mentioned above.");
             Paragraph  p25 = new Paragraph("Counter signature of the Head of the institution with stamp");
+*/
             Phrase  p26 = new Paragraph("Total");
             Paragraph  p27 = new Paragraph("Signature", font2);
             Paragraph  p28a = new Paragraph("Full Postal", font2);
@@ -169,8 +173,8 @@ public class ExaminersBill {
             P1.setAlignment(Element.ALIGN_CENTER);
             doc.add(P1);
 
-/*            ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
-//            doc.add(p1);
+/*          ((Paragraph) p1).setAlignment(Element.ALIGN_CENTER);
+//          doc.add(p1);
             ((Paragraph) p2).setAlignment(Element.ALIGN_CENTER);
             doc.add(p2);
             ((Paragraph) p3).setAlignment(Element.ALIGN_CENTER);
@@ -183,6 +187,26 @@ public class ExaminersBill {
 
             P2.setAlignment(Element.ALIGN_LEFT);
             doc.add(P2);
+
+            p0.setSpacingBefore(4f);
+            doc.add(p0);
+
+            float [] ColumnWidth1 = { 75F };
+            PdfPTable table1 = new PdfPTable(ColumnWidth1);
+//            PdfPCell cell1 = new PdfPCell();
+
+            PdfPCell cell1 = new PdfPCell(new Paragraph(p10));
+//            cell1.setHorizontalAlignment(350);
+            cell1.setBorder(PdfPCell.NO_BORDER);
+            table1.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table1.addCell(cell1);
+
+            cell1 = new PdfPCell(new Paragraph("  "));
+//            cell1.setHorizontalAlignment(350);
+            cell1.setBorder(PdfPCell.NO_BORDER);
+            table1.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table1.addCell(cell1);
+            doc.add(table1);
 
 
 /*            ((Paragraph) p5).setAlignment(Element.ALIGN_LEFT);
@@ -200,7 +224,7 @@ public class ExaminersBill {
             p0.setAlignment(Element.ALIGN_LEFT);
             doc.add(p0);
 
-            P5.setSpacingBefore(110f);
+            P5.setSpacingBefore(50f);
             P5.setLeading(22f);
             P5.setAlignment(Element.ALIGN_LEFT);
             doc.add(P5);
@@ -253,8 +277,8 @@ public class ExaminersBill {
             canvas.moveTo(6.8*x/100, 41*y/100);            // Bottom Second Line of the Bill Table
             canvas.lineTo(95*x/100, 41*y/100);             // Bottom Second Line of the Bill Table
 
-            canvas.moveTo(6.8*x/100, 39*y/100);          // Bottom First Line of the Bill Table
-            canvas.lineTo(95*x/100, 39*y/100);           // Bottom First Line of the Bill Table
+            canvas.moveTo(6.8*x/100, 39*y/100);           // Bottom First Line of the Bill Table
+            canvas.lineTo(95*x/100, 39*y/100);            // Bottom First Line of the Bill Table
 
             canvas.moveTo(66*x/100, 59.5*y/100);           // Vertical Line of the Bill Table
             canvas.lineTo(66*x/100, 39*y/100);             // Vertical Line of the Bill Table
@@ -294,7 +318,7 @@ public class ExaminersBill {
 
             canvas.rectangle(60, 210, 64, 70);
 
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p10,  96, 576, 0);    // Name Internal
+//          ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p10,  96, 576, 0);    // Name Internal
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11a, 60, 549, 0);    // Subject
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11b, 389, 549, 0);   // Year of Exam
 
