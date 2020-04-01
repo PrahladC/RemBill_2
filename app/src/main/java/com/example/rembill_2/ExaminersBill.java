@@ -133,11 +133,12 @@ public class ExaminersBill {
 //            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE" + "     " +
 //                    "Practical Examination February / July -");
             Paragraph p11a = new Paragraph("Subject  " + MA.examSubject);
-            Paragraph p11b = new Paragraph("Practical Examination February / July -" + "  " + "2020");
+            Paragraph p11b = new Paragraph("Practical Examination February / July - " + MA.examYear);
+//            Paragraph p11b = new Paragraph("Practical Examination February / July -" );
 
-            Paragraph p12 = new Paragraph("at the" + "  P L A C E  O F  E X A M I N A T I O N " +
-                    "                    Index No.of Jr.College - " + "  " + "J - 31.004.005");
-            Paragraph p12a = new Paragraph("at the" );
+//            Paragraph p12 = new Paragraph("at the" + "  P L A C E  O F  E X A M I N A T I O N " +
+//                    "                    Index No.of Jr.College - " + "  " + "J - 31.004.005");
+            Paragraph p12a = new Paragraph("at the " + " R. M. Bhatt Junior College. Parel");
             Paragraph p12b = new Paragraph("Index No.of Jr.College - " + "  " + "J - 31.004.005" );
 //            Paragraph p11 = new Paragraph("Subject" + "  " + " EVINIRONMENTAL SCIENCE");
 //            Phrase p12 = new Paragraph("Practical Examination February / July" );
@@ -205,8 +206,52 @@ public class ExaminersBill {
 //            cell1.setHorizontalAlignment(350);
             cell1.setBorder(PdfPCell.NO_BORDER);
             table1.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table1.setSpacingAfter(-7f);
             table1.addCell(cell1);
             doc.add(table1);
+
+
+
+            PdfPTable table2 = new PdfPTable(4);
+
+            // Creates another row that only have two columns.
+            // The cell 5 and cell 6 width will span two columns
+            // in width.
+            PdfPCell cell2 = new PdfPCell(new Phrase(p11a));
+            cell2.setBorder(PdfPCell.NO_BORDER);
+            cell2.setColspan(2);
+
+            PdfPCell cell3 = new PdfPCell(new Phrase(p11b));
+            cell3.setColspan(2);
+            cell3.setBorder(PdfPCell.NO_BORDER);
+
+            table2.setSpacingAfter(14f);
+            table2.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table2.setSpacingAfter(13f);
+            table2.setWidthPercentage(90);
+            table2.addCell(cell2);
+            table2.addCell(cell3);
+            // Adds table to the doc
+            doc.add(table2);
+
+            PdfPTable table3 = new PdfPTable(4);
+            PdfPCell cell4 = new PdfPCell(new Phrase(p12a));
+            cell4.setBorder(PdfPCell.NO_BORDER);
+            cell4.setColspan(2);
+
+            PdfPCell cell5 = new PdfPCell(new Phrase(p12b));
+            cell5.setColspan(2);
+            cell5.setBorder(PdfPCell.NO_BORDER);
+
+            table3.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table3.setWidthPercentage(113);
+            table3.addCell(cell4);
+            table3.addCell(cell5);
+            // Adds table to the doc
+            doc.add(table3);
+
+
+
 
 
 /*            ((Paragraph) p5).setAlignment(Element.ALIGN_LEFT);
@@ -224,7 +269,7 @@ public class ExaminersBill {
             p0.setAlignment(Element.ALIGN_LEFT);
             doc.add(p0);
 
-            P5.setSpacingBefore(50f);
+            P5.setSpacingBefore(10f);
             P5.setLeading(22f);
             P5.setAlignment(Element.ALIGN_LEFT);
             doc.add(P5);
@@ -255,9 +300,9 @@ public class ExaminersBill {
             canvas.lineTo(95*x/100, 68.25*y/100);          // Line in front of Name
 
             canvas.moveTo(14*x/100, 65*y/100);
-            canvas.lineTo(45*x/100, 65*y/100);             // Line in front of Subject
+            canvas.lineTo(47*x/100, 65*y/100);             // Line in front of Subject
 
-            canvas.moveTo(80*x/100, 65*y/100);             // Difference of 3.25 in y-coordinates
+            canvas.moveTo(82*x/100, 65*y/100);             // Difference of 3.25 in y-coordinates
             canvas.lineTo(95*x/100, 65*y/100);             // Line in front of Examination February / July
             // If we add length of the Subject String
             // i.e x-coordinate of .lineto = x-coordinate of .moveto + l(Subject String) + 5
@@ -319,11 +364,12 @@ public class ExaminersBill {
             canvas.rectangle(60, 210, 64, 70);
 
 //          ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p10,  96, 576, 0);    // Name Internal
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11a, 60, 549, 0);    // Subject
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11b, 389, 549, 0);   // Year of Exam
 
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p12a, 55, 522, 0);    // at - College Name
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p12b, 455, 522, 0);   // Index No. of College
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11a, 60, 549, 0);    // Subject
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p11b, 389, 549, 0);   // Year of Exam
+
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p12a, 55, 522, 0);    // at - College Name
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p12b, 455, 522, 0);   // Index No. of College
 
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p13, 216, 487, 0);    // Particulars
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p14, 481, 487, 0);    // Amount
