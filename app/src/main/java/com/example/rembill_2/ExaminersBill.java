@@ -163,11 +163,15 @@ public class ExaminersBill {
             Paragraph  p28a = new Paragraph("Full Postal", font2);
             Paragraph  p28b = new Paragraph("Residential Address", font2);
             Phrase  p29 = new Paragraph("Rs. " + "999");
-            Paragraph  p30 = new Paragraph("On revenue ", font2);
-            Paragraph  p31 = new Paragraph("stamp, when", font2);
-            Paragraph  p32 = new Paragraph("the amount", font2);
-            Paragraph  p33 = new Paragraph("exceeds ", font2);
-            Paragraph  p34 = new Paragraph(" Rs.5000/- ", font2);
+            Paragraph p30a = new Paragraph("On revenue " + "stamp, when " + "the amount " +
+                                                  "exceeds " +" Rs.5000/- ", font2);
+            Paragraph p30b = new Paragraph("On revenue stamp, when the amount exceeds Rs.5000/- ", font2);
+
+//            Paragraph  p30 = new Paragraph("On revenue ", font2);
+//            Paragraph  p31 = new Paragraph("stamp, when", font2);
+//            Paragraph  p32 = new Paragraph("the amount", font2);
+//            Paragraph  p33 = new Paragraph("exceeds ", font2);
+//            Paragraph  p34 = new Paragraph(" Rs.5000/- ", font2);
             Paragraph  p35 = new Paragraph("Recieved Payment", font2);
             Paragraph  p36 = new Paragraph("Signature of payee", font2);
 
@@ -361,7 +365,17 @@ public class ExaminersBill {
             canvas.moveTo(60*x/100, 41*y/100);             // Vertical Line of the Bill Table -> Total
             canvas.lineTo(60*x/100, 39*y/100);             // Vertical Line of the Bill Table -> Total
 
-            canvas.rectangle(60, 210, 64, 70);
+            ColumnText ct = new ColumnText(canvas);
+            ct = new ColumnText(canvas);
+            ct.setSimpleColumn(56, 56, 122, 281);
+            ct.addElement(p30a);
+            ct.setAlignment(Element.ALIGN_CENTER);
+            ct.go();
+            float endPos = ct.getYLine() - 5;
+            canvas.rectangle(56, 210, 66, 281 - 210);
+            canvas.stroke();
+
+//            canvas.rectangle(60, 210, 64, 70);
 
 //          ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p10,  96, 576, 0);    // Name Internal
 
@@ -400,11 +414,11 @@ public class ExaminersBill {
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p29, 76*x/100, 55*y/100, 0);     // Total Amount on Toop
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p29, 76*x/100, 40*y/100-4, 0);   // Total Amount at Bottom
 //            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p29, 84, 265, 0);   // Total Amount at Bottom
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p30, 90, 266, 0);   // Revenue Stamp
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p31, 90, 254, 0);   // Revenue Stamp
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p32, 90, 242, 0);   // Revenue Stamp
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p33, 90, 230, 0);   // Revenue Stamp
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p34, 90, 218, 0);   // Revenue Stamp
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p30, 90, 266, 0);   // Revenue Stamp
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p31, 90, 254, 0);   // Revenue Stamp
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p32, 90, 242, 0);   // Revenue Stamp
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p33, 90, 230, 0);   // Revenue Stamp
+//            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p34, 90, 218, 0);   // Revenue Stamp
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p35, 90, 285, 0);   // Payment Recieved
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p36, 90, 200, 0);   // Signature of payee
 
