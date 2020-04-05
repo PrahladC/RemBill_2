@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
 
     String examSubject, examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
-    private Button buttonExternal, buttonInternal, buttonExaminationDetails, PintInternalBill, Load, Exit, PrintAllCombined;
+    private Button buttonExternal, buttonInternal, buttonExaminationDetails, PrintInternalBill, PrintExternalBill, Load, Exit, PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
     String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12;
@@ -164,22 +164,31 @@ public class MainActivity extends AppCompatActivity {
 
         //  internal_Bill_Print
 
-        PintInternalBill = (Button) findViewById(R.id.internal_Bill_Print);
-        PintInternalBill.setOnClickListener(new View.OnClickListener() {
+        PrintInternalBill = (Button) findViewById(R.id.internal_Bill_Print);
+        PrintInternalBill.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
                 EB.CreateInternalPDF();
-              Msg.Show("PDF Created",getApplicationContext());
+              Msg.Show("PDF of Internal Examiner's \n Bill Created",getApplicationContext());
             }
 
         });
 
+        PrintExternalBill = (Button) findViewById(R.id.external_Bill_Print);
+        PrintExternalBill.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                EB.CreateExternalPDF();
+                Msg.Show("PDF of External Examiner's \n Bill Created",getApplicationContext());
+            }
+
+        });
 
     }
-
-//                PintInternalBill = (Button) findViewById(R.id.ExamDetails_button);
 
 
     public boolean StoragePermissionGranted() {
@@ -217,10 +226,10 @@ public class MainActivity extends AppCompatActivity {
         //OpenNow=false;
         String rootDir = Environment.getExternalStorageDirectory().getPath();
         List<String> listItems = new ArrayList<String>();
-        File mfile = new File(rootDir);
-        File[] list = mfile.listFiles();
+        File Pfile = new File(rootDir);
+        File[] list = Pfile.listFiles();
         String tempupper;
-        for (int i = 0; i < mfile.listFiles().length; i++) {
+        for (int i = 0; i < Pfile.listFiles().length; i++) {
             tempstr = list[i].getAbsolutePath();
             tempupper = tempstr.toUpperCase();
             if (tempupper.endsWith(".RMB"))

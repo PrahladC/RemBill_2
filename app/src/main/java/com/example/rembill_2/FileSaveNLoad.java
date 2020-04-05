@@ -89,33 +89,7 @@ public class FileSaveNLoad {
             DataRow=myReader.readLine(); /// blank line separator
             DataRow=myReader.readLine(); /// blank line separator
 
-            String tempstr;
-/*
-            tempstr = myReader.readLine();
-            examSubject = tempstr;
-
-            tempstr = myReader.readLine();
-            examYear = tempstr;
-
-
-            tempstr= myReader.readLine();    // show(examStartDate);
-            examStartDate = tempstr;
-
-            tempstr= myReader.readLine();    // show(examEndDate);
-            examEndDate = tempstr;
-
-            tempstr= myReader.readLine();
-            noExamDates = tempstr;
-
-            tempstr= myReader.readLine();
-            examNoOfDays = tempstr;
-
-            tempstr= myReader.readLine();
-            NoOfStudents = tempstr;
-
-            tempstr= myReader.readLine();
-            remunerationPerStudent = tempstr;
-*/
+//            String tempstr;
             MA.ExamRelatedDetails.removeAll(MA.ExamRelatedDetails);
             while ((DataRow = myReader.readLine()) != null)
 
@@ -262,7 +236,6 @@ public class FileSaveNLoad {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FSNL.OpenFileDialog();
                 dialog.dismiss();
             }
         });
