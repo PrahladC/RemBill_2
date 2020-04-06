@@ -44,10 +44,7 @@ public class ExaminersBill {
     {
         Toast.makeText(MA,tempstring,Toast.LENGTH_SHORT).show();
     }
-    public void Show(float floattemp)
-    {
-        Toast.makeText(MA, (int) floattemp,Toast.LENGTH_SHORT).show();
-    }
+    public void Show(float floattemp) { Toast.makeText(MA, (int) floattemp,Toast.LENGTH_SHORT).show(); }
 
     static Font font1 = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.BOLD);
@@ -334,8 +331,7 @@ public class ExaminersBill {
 
     }
 
-    void CreateExternalPDF()
-    {
+    void CreateExternalPDF() {
         rootDir = Environment.getExternalStorageDirectory().getPath();
         String pdfFileNameWithPath = rootDir + "/" + MA.externalname + ".pdf";
 

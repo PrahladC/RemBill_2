@@ -34,12 +34,14 @@ public class MainActivity extends AppCompatActivity {
     FileSaveNLoad FSNL = new FileSaveNLoad();
 //    Message Msg = new Message();
     ExaminersBill EB = new ExaminersBill();
+    RelievingOrder RO = new RelievingOrder();
   //  Msg msg = new Msg();
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
 
     String examSubject, examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
-    private Button buttonExternal, buttonInternal, buttonExaminationDetails, PrintInternalBill, PrintExternalBill, Load, Exit, PrintAllCombined;
+    private Button buttonExternal, buttonInternal, buttonExaminationDetails, PrintInternalBill, PrintExternalBill,
+            PrintRelieveOrder, Load, Exit, PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
     String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12;
@@ -188,6 +190,19 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        PrintRelieveOrder = (Button) findViewById(R.id.external_Relieve_Print);
+        PrintRelieveOrder.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                RO.RelieveOrderPDF();
+                Msg.Show("PDF of External Examiner's \n Relieving Order Created",getApplicationContext());
+            }
+
+        });
+
+
     }
 
 
@@ -260,33 +275,6 @@ public class MainActivity extends AppCompatActivity {
             FileInputStream fIn = new FileInputStream(myFile);
             BufferedReader myReader = new BufferedReader(new InputStreamReader(fIn));
             String DataRow = "";
-
-//            String tempstr;
-
-//            DataRow=myReader.readLine();      show(DataRow);      /// blank line separator
-//            DataRow=myReader.readLine();      show(DataRow);      /// blank line separator
-
-//            tempstr = myReader.readLine();
-//            examYear = tempstr;                  show(examYear);
-
-/*            tempstr= myReader.readLine();     show(examStartDate);
-            examStartDate = tempstr;
-
-            tempstr= myReader.readLine();     show(examEndDate);
-            examEndDate = tempstr;
-
-            tempstr= myReader.readLine();
-            noExamDates = tempstr;              show(noExamDates);
-
-            tempstr= myReader.readLine();
-            examNoOfDays = tempstr;             show(examNoOfDays);
-
-            tempstr= myReader.readLine();
-            NoOfStudents = tempstr;             show(NoOfStudents);
-
-            tempstr= myReader.readLine();
-            remunerationPerStudent = tempstr;   show(remunerationPerStudent);
-*/
 
             ExamRelatedDetails.removeAll(ExamRelatedDetails);
             while ((DataRow = myReader.readLine()) != null) {
