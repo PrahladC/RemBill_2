@@ -18,8 +18,8 @@ import android.widget.Toast;
 
 public class Msg
 {
-    // private static  MainActivity MA;
-    // void SetMA(MainActivity MA){this.MA=MA;}
+     private static  MainActivity MA;
+     void SetMA(MainActivity MA){this.MA=MA;}
 
 
     static void Show(String msg, Context context)

@@ -32,28 +32,23 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     FileSaveNLoad FSNL = new FileSaveNLoad();
-//    Message Msg = new Message();
     ExaminersBill EB = new ExaminersBill();
     RelievingOrder RO = new RelievingOrder();
-  //  Msg msg = new Msg();
+    Msg msg = new Msg();
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
 
     String examSubject, examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
     private Button buttonExternal, buttonInternal, buttonExaminationDetails, PrintInternalBill, PrintExternalBill,
-            PrintRelieveOrder, Load, Exit, PrintAllCombined;
+            PrintRelieveOrder, buttonLoad, buttonExit, PrintAllCombined;
     String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
     String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
     String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12;
     String E13, E14, E15, E16, E17, E18, E19, E20;
-    float temp;
 
 
     ArrayList<String> ExamRelatedDetails = new ArrayList<>();
 
-    public void show(String tempstring) {
-        Toast.makeText(this, tempstring, Toast.LENGTH_SHORT).show();
-    }
 //    private EditText Internalname;
 
     @Override
@@ -65,39 +60,32 @@ public class MainActivity extends AppCompatActivity {
 
         EB.SetMA(this);
         RO.SetMA(this);
+        msg.SetMA(this);
 //        if(!StoragePermissionGranted()) { return;}
 
         /// Iniitialized array with 22 empty strings
         for (int i = 0; i < 23; i++) ExamRelatedDetails.add("");
 
-        Button btnLoad = (Button) findViewById(R.id.Load);
-        btnLoad.setOnClickListener(new View.OnClickListener() {
+        buttonLoad = findViewById(R.id.Load);
+        buttonLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                FSNL.OpenFileDialog();
-//                finish();
-//                System.exit(0);
-//                  FSNL.OpenFileDialog();
                 OpenFileDialog();
                 LoadFile(fylenemwithpsth);
 
             }
         });
 
-        Button btnCancel = (Button) findViewById(R.id.Exit);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        buttonExit = findViewById(R.id.Exit);
+        buttonExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
-//        for(int i = 0; i < ExamRelatedDetails.size(); i++  ) {
-
-//            show(ExamRelatedDetails.get(i));
-//        }
             }
         });
 
-        buttonInternal = (Button) findViewById(R.id.internal_button);
+        buttonInternal = findViewById(R.id.internal_button);
         buttonInternal.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -109,9 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 E4 = ExamRelatedDetails.get(13);
                 E5 = ExamRelatedDetails.get(14);
                 E6 = ExamRelatedDetails.get(15);
-//                Msg.show(E1);
-//                msg.Show(E1, );
-//                show(E1); show(E2); show(E3); show(E4); show(E5); show(E6);
 
                 FSNL.ShowInternalExaminerDetails(MainActivity.this, E1, E2, E3, E4, E5, E6);
                 internalname = E1;          internalCollegeName = E2;   internalColIndex = E3;
@@ -120,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        buttonExternal = (Button) findViewById(R.id.external_button);
+        buttonExternal = findViewById(R.id.external_button);
         buttonExternal.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -142,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        buttonExaminationDetails = (Button) findViewById(R.id.ExamDetails_button);
+        buttonExaminationDetails = findViewById(R.id.ExamDetails_button);
         buttonExaminationDetails.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -167,42 +152,53 @@ public class MainActivity extends AppCompatActivity {
 
         //  internal_Bill_Print
 
-        PrintInternalBill = (Button) findViewById(R.id.internal_Bill_Print);
+        PrintInternalBill = findViewById(R.id.internal_Bill_Print);
         PrintInternalBill.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
                 EB.CreateInternalPDF();
-              Msg.Show("PDF of Internal Examiner's \n Bill Created",getApplicationContext());
+              msg.Show("PDF of Internal Examiner's \n Bill Created",getApplicationContext());
             }
 
         });
 
-        PrintExternalBill = (Button) findViewById(R.id.external_Bill_Print);
+        PrintExternalBill = findViewById(R.id.external_Bill_Print);
         PrintExternalBill.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
                 EB.CreateExternalPDF();
-                Msg.Show("PDF of External Examiner's \n Bill Created",getApplicationContext());
+                msg.Show("PDF of External Examiner's \n Bill Created",getApplicationContext());
             }
 
         });
 
-        PrintRelieveOrder = (Button) findViewById(R.id.external_Relieve_Print);
+        PrintRelieveOrder = findViewById(R.id.external_Relieve_Print);
         PrintRelieveOrder.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
                 RO.RelieveOrderPDF();
-                Msg.Show("PDF of External Examiner's \n Relieving Order Created",getApplicationContext());
+                msg.Show("PDF of External Examiner's \n Relieving Order Created",getApplicationContext());
             }
 
         });
 
+        PrintAllCombined = findViewById(R.id.PrintAllPDFs);
+        PrintAllCombined.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+//                RO.RelieveOrderPDF();
+                msg.Show("Combined PDF of all \n is yet to be done",getApplicationContext());
+            }
+
+        });
 
     }
 
@@ -233,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            Msg.Show("Permission Granted",getApplicationContext());
+            msg.Show("Permission Granted",getApplicationContext());
 
     }
 
@@ -258,9 +254,8 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("Select File To Open...");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int item) {
-                String ttt = (String) items[item];
-                LoadFile(ttt);
-//                show(ttt);
+                String selected = (String) items[item];
+                LoadFile(selected);
             }
         });
         AlertDialog alert = builder.create();

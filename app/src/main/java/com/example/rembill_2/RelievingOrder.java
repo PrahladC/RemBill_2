@@ -89,7 +89,24 @@ public class RelievingOrder {
             canvas.lineTo(78*x/100, 57*y/100);          // To whomsoever concern
 
             canvas.moveTo(46*x/100, 50.5*y/100);          // Name of teacher
-            canvas.lineTo(88*x/100, 50.5*y/100);          // Name of teacher
+            canvas.lineTo(90*x/100, 50.5*y/100);          // Name of teacher
+
+            canvas.moveTo(20*x/100, 47*y/100);          // Name of College
+            canvas.lineTo(54*x/100, 47*y/100);          // Name of College
+
+            canvas.moveTo(28*x/100, 43.8*y/100);          // Name of Subject
+            canvas.lineTo(45*x/100, 43.8*y/100);          // Name of Subject
+
+            canvas.moveTo(65*x/100, 43.8*y/100);          // Exam start date
+            canvas.lineTo(75*x/100, 43.8*y/100);          // Exam start date
+
+            canvas.moveTo(80*x/100, 43.8*y/100);          // Exam End date
+            canvas.lineTo(90*x/100, 43.8*y/100);          // Exam End date
+
+            for(int i = 0; i <= MA.noExamDates.length(); i++) {
+                canvas.moveTo(24 * x / 100, 40.8 * y / 100);          // Name of Subject
+                canvas.lineTo((35 + i) * x / 100, 40.8 * y / 100);          // Name of Subject
+            }
 
 
 //            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, P4, 17*x/100, 48*y/100, 0);    // From ... College
@@ -179,7 +196,7 @@ public class RelievingOrder {
             doc.add(table4);
             P10.setSpacingBefore(10);
             doc.add(P10);
-            P11.setSpacingBefore(50);
+            P11.setSpacingBefore(60);
             doc.add(P11);
 
 
