@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         StoragePermissionGranted();
 
         EB.SetMA(this);
+        RO.SetMA(this);
 //        if(!StoragePermissionGranted()) { return;}
 
         /// Iniitialized array with 22 empty strings

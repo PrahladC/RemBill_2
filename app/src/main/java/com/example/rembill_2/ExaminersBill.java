@@ -121,7 +121,7 @@ public class ExaminersBill {
                                                "Counter signature of the Head of the institution with stamp" );
 
             Paragraph p0 = new Paragraph(" ");
-            Paragraph p10 = new Paragraph("Name Shri/Smt/Miss" + "  "  + MA.internalname );   //   + "  "  + MA.internalname);
+            Paragraph p10 = new Paragraph("Name : Shri/Smt/Miss" + "  "  + MA.internalname );   //   + "  "  + MA.internalname);
             Paragraph p11a = new Paragraph("Subject  " + MA.examSubject);
             Paragraph p11b = new Paragraph("Practical Examination February / July - " + MA.examYear);
 
@@ -294,7 +294,7 @@ public class ExaminersBill {
             ct.setSimpleColumn(56, 56, 122, 280);
 //            P5.setLeading(22f);
             p30.setAlignment(Element.ALIGN_CENTER);
-            ct.addElement(p30);
+            ct.addElement(p30);                                     //  On revenue stamp, .....
 //            ct.setAlignment(Element.ALIGN_CENTER);
             ct.go();
             canvas.rectangle(56, 210, 66, 70);
