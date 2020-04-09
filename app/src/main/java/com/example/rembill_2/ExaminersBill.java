@@ -96,8 +96,9 @@ public class ExaminersBill {
             float NOS = Float.valueOf(MA.NoOfStudents);
             DecimalFormat df = new DecimalFormat("00.00");
             float total = RPS*NOS;
-            String Total = df.format(total);
-            Paragraph GrandTotal = new Paragraph(Total);
+//            String Total = df.format(total);
+            String Total = Float.toString(total);
+ //           Paragraph GrandTotal = new Paragraph(Total);
 
             Paragraph P1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION \n" +
                                                 "MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703 \n" +
@@ -113,7 +114,7 @@ public class ExaminersBill {
                                                "Actual Total number of candidates examined by me = " + "   " + MA.NoOfStudents + " \n" +
                                                "Excluding Absentees \n" +
                                                "Rs. " + "  " +  MA.remunerationPerStudent  + "     " + "per candidate." + "         " +
-                                               GrandTotal + "\n" + "( Minimum of Rs.50/- irrespective of the number of candidates )" );
+                                               Total + "\n" + "( Minimum of Rs.50/- irrespective of the number of candidates )" );
 
             Paragraph P6 = new Paragraph("Name of Jr. College where teaching " + "     " + MA.internalCollegeName + "\n" +
                                                "IndexNo.of Jr.College " + "  " + MA.internalColIndex + "\n" +
@@ -135,7 +136,7 @@ public class ExaminersBill {
             Paragraph  p27 = new Paragraph("Signature", font2);
             Paragraph  p28a = new Paragraph("Full Postal", font2);
             Paragraph  p28b = new Paragraph("Residential Address", font2);
-            Phrase  p29 = new Paragraph("Rs. " + GrandTotal);
+            Phrase  p29 = new Paragraph("Rs. " + Total);
             Paragraph p30 = new Paragraph("On revenue stamp, when the amount exceeds Rs.5000/- ", font2);
 
             Paragraph  p35 = new Paragraph("Recieved Payment", font2);
@@ -261,13 +262,13 @@ public class ExaminersBill {
 
             canvas.moveTo(55*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
             canvas.lineTo(63*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
-
+/*
             canvas.moveTo(10.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
             canvas.lineTo(14.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
 
             canvas.moveTo(33*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
             canvas.lineTo(50*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
-
+*/
             canvas.moveTo(50*x/100, 33*y/100);             // Signature line out side the Bill Table
             canvas.lineTo(95*x/100, 33*y/100);             // Signature line out side the Bill Table
 
@@ -368,8 +369,9 @@ public class ExaminersBill {
             float NOS = Float.valueOf(MA.NoOfStudents);
             DecimalFormat df = new DecimalFormat("00.00");
             float total = RPS*NOS;
-            String Total = df.format(total);
-            Paragraph GrandTotal = new Paragraph(Total);
+//            String Total = df.format(total);
+            String Total = Float.toString(total);
+            //           Paragraph GrandTotal = new Paragraph(Total);
 
             Paragraph P1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION \n" +
                     "MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703 \n" +
@@ -384,8 +386,8 @@ public class ExaminersBill {
                     "the Examination center. Number ofdays of examination = " + "   " + MA.examNoOfDays + " \n" +
                     "Actual Total number of candidates examined by me = " + "   " + MA.NoOfStudents + " \n" +
                     "Excluding Absentees \n" +
-                    "Rs. " + "  " +  MA.remunerationPerStudent  + "     " + "per candidate." + "         " +
-                    GrandTotal + "\n" + "( Minimum of Rs.50/- irrespective of the number of candidates )" );
+                    "Rs. " + "  " +  MA.remunerationPerStudent  + "     " + "per candidate." + "         " + RPS + " x " + NOS + " = " +
+                    Total + "\n" + "( Minimum of Rs.50/- irrespective of the number of candidates )" );
 
             Paragraph P6 = new Paragraph("Name of Jr. College where teaching " + "     " + MA.externalCollegeName + "\n" +
                     "IndexNo.of Jr.College " + "  " + MA.externalColIndex + "\n" +
@@ -397,8 +399,8 @@ public class ExaminersBill {
             Paragraph p11a = new Paragraph("Subject  " + MA.examSubject);
             Paragraph p11b = new Paragraph("Practical Examination February / July - " + MA.examYear);
 
-            Paragraph p12a = new Paragraph("at the  " + MA.externalCollegeName);
-            Paragraph p12b = new Paragraph("Index No.of Jr.College - " + "  " + MA.externalColIndex );
+            Paragraph p12a = new Paragraph("at the  " + MA.internalCollegeName);
+            Paragraph p12b = new Paragraph("Index No.of Jr.College - " + "  " + MA.internalColIndex );
             Phrase  p13 = new Paragraph("Particulars");
             Phrase  p14 = new Paragraph("Amount");
             Paragraph  p21 = new Paragraph("I hereby undertake to refund if any amount paid to me in excess of the amount due");
@@ -407,7 +409,7 @@ public class ExaminersBill {
             Paragraph  p27 = new Paragraph("Signature", font2);
             Paragraph  p28a = new Paragraph("Full Postal", font2);
             Paragraph  p28b = new Paragraph("Residential Address", font2);
-            Phrase  p29 = new Paragraph("Rs. " + GrandTotal);
+            Phrase  p29 = new Paragraph("Rs. " + Total);
             Paragraph p30 = new Paragraph("On revenue stamp, when the amount exceeds Rs.5000/- ", font2);
 
             Paragraph  p35 = new Paragraph("Recieved Payment", font2);
@@ -534,12 +536,12 @@ public class ExaminersBill {
             canvas.moveTo(55*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
             canvas.lineTo(63*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
 
-            canvas.moveTo(10.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
+/*            canvas.moveTo(10.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
             canvas.lineTo(14.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
 
             canvas.moveTo(33*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
-            canvas.lineTo(50*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
-
+            canvas.lineTo(58*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
+*/
             canvas.moveTo(50*x/100, 33*y/100);             // Signature line out side the Bill Table
             canvas.lineTo(95*x/100, 33*y/100);             // Signature line out side the Bill Table
 

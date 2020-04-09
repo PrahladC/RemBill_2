@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text"
+                android:maxLength="14"
                 android:background="@drawable/round_corners"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
