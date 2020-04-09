@@ -104,8 +104,8 @@ public class RelievingOrder {
             canvas.lineTo(90*x/100, 43.8*y/100);          // Exam End date
 
             for(int i = 0; i <= MA.noExamDates.length(); i++) {
-                canvas.moveTo(24 * x / 100, 40.8 * y / 100);          // Name of Subject
-                canvas.lineTo((35 + i) * x / 100, 40.8 * y / 100);          // Name of Subject
+                canvas.moveTo((24+i) * x / 100, 40.8 * y / 100);          // Name of Subject
+                canvas.lineTo(35 * x / 100, 40.8 * y / 100);              // Name of Subject
             }
 
 
