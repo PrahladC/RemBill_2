@@ -61,7 +61,7 @@ public class ExaminersBill {
     void CreateInternalPDF()
     {
         rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" +  MA.internalname + ".pdf";
+        String pdfFileNameWithPath = rootDir + "/" +  MA.internalname + "-Rembill" + ".pdf";
 
         try {
             Document doc = new Document();
@@ -302,7 +302,7 @@ public class ExaminersBill {
             canvas.stroke();
 
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine1, 62*x/100, 31*y/100, 0);    // Internal Add Line1
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine2, 60*x/100, 28*y/100, 0);    // Internal Add Line2
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine2, 62*x/100, 28*y/100, 0);    // Internal Add Line2
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine3, 60*x/100, 25*y/100, 0);    // Internal Add Line2
 
 
@@ -334,7 +334,7 @@ public class ExaminersBill {
 
     void CreateExternalPDF() {
         rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" + MA.externalname + ".pdf";
+        String pdfFileNameWithPath = rootDir + "/" + MA.externalname + "-Rembill" + ".pdf";
 
         try {
             Document doc = new Document();
@@ -371,7 +371,7 @@ public class ExaminersBill {
             float total = RPS*NOS;
 //            String Total = df.format(total);
             String Total = Float.toString(total);
-            //           Paragraph GrandTotal = new Paragraph(Total);
+//           Paragraph GrandTotal = new Paragraph(Total);
 
             Paragraph P1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION \n" +
                     "MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703 \n" +
@@ -492,7 +492,7 @@ public class ExaminersBill {
             P6.setAlignment(Element.ALIGN_LEFT);
             doc.add(P6);
 
-// Creating a PdfCanvas object
+//          Creating a PdfCanvas object
 
             PdfContentByte canvas = docWriter.getDirectContent();
             CMYKColor blackColor = new CMYKColor(0.f, 0.f, 0.f, 1.f);
@@ -536,7 +536,7 @@ public class ExaminersBill {
             canvas.moveTo(55*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
             canvas.lineTo(63*x/100, 49.4*y/100);           // Line after equalt sign in side the Bill Table
 
-/*            canvas.moveTo(10.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
+/*          canvas.moveTo(10.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
             canvas.lineTo(14.5*x/100, 44*y/100);           // Remuneration in front Rs. in side the Bill Table
 
             canvas.moveTo(33*x/100, 44*y/100);             // Calculation of Remuneratio Line in side the Bill Table
@@ -575,8 +575,8 @@ public class ExaminersBill {
             canvas.stroke();
 
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine1, 62*x/100, 31*y/100, 0);    // Internal Add Line1
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine2, 60*x/100, 28*y/100, 0);    // Internal Add Line2
-            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine3, 60*x/100, 25*y/100, 0);    // Internal Add Line2
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine2, 62*x/100, 28*y/100, 0);    // Internal Add Line2
+            ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, internalAddLine3, 62*x/100, 25*y/100, 0);    // Internal Add Line2
 
 
             ColumnText.showTextAligned(canvas, Element.ALIGN_CENTER, p13, 216, 487, 0);    // Particulars

@@ -70,7 +70,7 @@ public class RelievingOrder {
             CMYKColor blackColor = new CMYKColor(0.f, 0.f, 0.f, 1.f);
             canvas.setColorStroke(blackColor);
 
-            canvas.moveTo(40, 30);              // Left Vertical Line
+/*          canvas.moveTo(40, 30);              // Left Vertical Line
             canvas.lineTo(40, y - 30);          // Left Vertical Line
 
             canvas.moveTo(40, 30);              // Bottom Horizontal Line
@@ -81,7 +81,7 @@ public class RelievingOrder {
 
             canvas.moveTo(40, y - 30);          // Top Horizontal Line
             canvas.lineTo(x - 25, y - 30);      // Top Horizontal Line
-
+*/
             canvas.moveTo(32*x/100, 62*y/100);          // Attendance certificate
             canvas.lineTo(71*x/100, 62*y/100);          // Attendance certificate
 
