@@ -27,16 +27,18 @@ public class FileSaveNLoad {
 
     public MainActivity MA;
     public void SetMA(MainActivity MA){this.MA=MA;}
-    Message Msg = new Message();
 
     public void show(String tempstring)
     {
         Toast.makeText(MA,tempstring,Toast.LENGTH_SHORT).show();
     }
 
-    String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
-    String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
-    String examSubject, examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
+    String internalname = " ", internalCollegeName = " ", internalColIndex = " ", internalAddressLine1 = " ",
+            internalAddressLine2 = " ", internalAddressLine3 = " ";
+    String externalname = " ", externalCollegeName = " ", externalColIndex = " ", externalAddressLine1 = " ",
+            externalAddressLine2 = " ", externalAddressLine3 = " ";
+    String examSubject = " ", examYear = " ", examStartDate = " ", examEndDate = " ", noExamDates = " ",
+            examNoOfDays = " ", NoOfStudents = " ", remunerationPerStudent = " ";
 
 
 

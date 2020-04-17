@@ -55,13 +55,14 @@ public class ExaminersBill {
 //        this.MA = MA;
 //    }
 
+    String Total = " ";
     String rootDir;
     public ArrayList<String> fileArray = new ArrayList<String>();
 
     void CreateInternalPDF()
     {
         rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" +  MA.internalname + "-Rembill" + ".pdf";
+        String pdfFileNameWithPath = rootDir + "/" +  MA.internalname + "-Internal" + ".pdf";
 
         try {
             Document doc = new Document();
@@ -91,15 +92,12 @@ public class ExaminersBill {
             table.setHorizontalAlignment(Element.ALIGN_RIGHT);
             table.addCell(cell);
             doc.add(table);
-
-            float RPS = Float.valueOf(MA.remunerationPerStudent);
+/*          float RPS = Float.valueOf(MA.remunerationPerStudent);
             float NOS = Float.valueOf(MA.NoOfStudents);
             DecimalFormat df = new DecimalFormat("00.00");
             float total = RPS*NOS;
-//            String Total = df.format(total);
-            String Total = Float.toString(total);
- //           Paragraph GrandTotal = new Paragraph(Total);
-
+            Total = Float.toString(total);
+*/
             Paragraph P1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION \n" +
                                                 "MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703 \n" +
                                                 "H.S.C. PRACTICAL EXAMINATION FEBRUARY/JULY - " + MA.examYear + "\n" +
@@ -334,7 +332,7 @@ public class ExaminersBill {
 
     void CreateExternalPDF() {
         rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" + MA.externalname + "-Rembill" + ".pdf";
+        String pdfFileNameWithPath = rootDir + "/" + MA.externalname + "-External" + ".pdf";
 
         try {
             Document doc = new Document();
@@ -365,14 +363,12 @@ public class ExaminersBill {
             table.addCell(cell);
             doc.add(table);
 
-            float RPS = Float.valueOf(MA.remunerationPerStudent);
+/*            float RPS = Float.valueOf(MA.remunerationPerStudent);
             float NOS = Float.valueOf(MA.NoOfStudents);
             DecimalFormat df = new DecimalFormat("00.00");
             float total = RPS*NOS;
-//            String Total = df.format(total);
-            String Total = Float.toString(total);
-//           Paragraph GrandTotal = new Paragraph(Total);
-
+            Total = Float.toString(total);
+*/
             Paragraph P1 = new Paragraph("MAHARASHTRA STATE BOARD OF SECONDARY & HIGHER SECONDARY EDUCATION \n" +
                     "MUMBAI DIVISIONAL BOARD, VASHI, NAVIMUMBAI 400703 \n" +
                     "H.S.C. PRACTICAL EXAMINATION FEBRUARY/JULY - " + MA.examYear + "\n" +
@@ -386,7 +382,7 @@ public class ExaminersBill {
                     "the Examination center. Number ofdays of examination = " + "   " + MA.examNoOfDays + " \n" +
                     "Actual Total number of candidates examined by me = " + "   " + MA.NoOfStudents + " \n" +
                     "Excluding Absentees \n" +
-                    "Rs. " + "  " +  MA.remunerationPerStudent  + "     " + "per candidate." + "         " + RPS + " x " + NOS + " = " +
+                    "Rs. " + "  " +  MA.remunerationPerStudent  + "     " + "per candidate." + "         " + " RPS " + " x " + " NOS " + " = " +
                     Total + "\n" + "( Minimum of Rs.50/- irrespective of the number of candidates )" );
 
             Paragraph P6 = new Paragraph("Name of Jr. College where teaching " + "     " + MA.externalCollegeName + "\n" +

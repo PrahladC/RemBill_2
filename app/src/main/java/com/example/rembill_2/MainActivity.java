@@ -38,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
 
-    String examSubject, examYear, examStartDate, examEndDate, noExamDates, examNoOfDays, NoOfStudents, remunerationPerStudent;
+    String examSubject = " ", examYear = " ", examStartDate = " ", examEndDate = " ", noExamDates = " ",
+           examNoOfDays = " ", NoOfStudents = " ", remunerationPerStudent = " ";
     private Button buttonExternal, buttonInternal, buttonExaminationDetails, PrintInternalBill, PrintExternalBill,
             PrintRelieveOrder, buttonLoad, buttonExit, PrintAllCombined;
-    String internalname, internalCollegeName, internalColIndex, internalAddressLine1, internalAddressLine2, internalAddressLine3;
-    String externalname, externalCollegeName, externalColIndex, externalAddressLine1, externalAddressLine2, externalAddressLine3;
+    String internalname = " ", internalCollegeName = " ", internalColIndex = " ", internalAddressLine1 = " ",
+            internalAddressLine2 = " ", internalAddressLine3 = " ";
+    String externalname = " ", externalCollegeName = " ", externalColIndex = " ", externalAddressLine1 = " ",
+            externalAddressLine2 = " ", externalAddressLine3 = " ";
     String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12;
     String E13, E14, E15, E16, E17, E18, E19, E20;
 
@@ -101,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 FSNL.ShowInternalExaminerDetails(MainActivity.this, E1, E2, E3, E4, E5, E6);
                 internalname = E1;          internalCollegeName = E2;   internalColIndex = E3;
                 internalAddressLine1 = E4;  internalAddressLine2 = E5;  internalAddressLine3 = E6;
+
             }
 
         });
