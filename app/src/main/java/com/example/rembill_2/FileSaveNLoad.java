@@ -193,7 +193,7 @@ public class FileSaveNLoad {
 //        show(" File Saved !!!");
     }
 
-    public void ShowInternalExaminerDetails(Activity activity, String e1,final String e2, final String e3,final String e4,
+    public void ShowInternalExaminerDetails(Activity activity, final String e1,final String e2, final String e3,final String e4,
                                             final String e5, final String e6)
     {
         final Dialog dialog = new Dialog(activity);
@@ -234,8 +234,8 @@ public class FileSaveNLoad {
         dialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        Button btnCancel = (Button) dialog.findViewById(R.id.ok);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        Button btnOK = (Button) dialog.findViewById(R.id.ok);
+        btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
@@ -289,8 +289,8 @@ public class FileSaveNLoad {
         dialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        Button btnCancel = (Button) dialog.findViewById(R.id.ok);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        Button btnOK = (Button) dialog.findViewById(R.id.ok);
+        btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                FSNL.OpenFileDialog();
@@ -348,8 +348,8 @@ public class FileSaveNLoad {
         dialog.getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
-        Button btnCancel = (Button) dialog.findViewById(R.id.OKExamDetails);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
+        Button btnOK = (Button) dialog.findViewById(R.id.OKExamDetails);
+        btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
