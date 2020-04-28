@@ -38,15 +38,15 @@ public class MainActivity extends AppCompatActivity {
 
     String fylenemwithpsth = Environment.getExternalStorageDirectory().getPath();
 
-    String examSubject = " ", examYear = " ", examStartDate = " ", examEndDate = " ", noExamDates = " ",
-           examNoOfDays = " ", NoOfStudents = " ", remunerationPerStudent = " ";
+    String examSubject = "", examYear = "", examStartDate = "", examEndDate = "", noExamDates = "",
+           examNoOfDays = "", NoOfStudents = "", remunerationPerStudent = "";
     private Button buttonExternal, buttonInternal, buttonExaminationDetails, PrintInternalBill, PrintExternalBill,
             PrintRelieveOrder, buttonLoad, buttonExit, PrintAllCombined;
-    String internalname = " ", internalCollegeName = " ", internalColIndex = " ", internalAddressLine1 = " ",
-            internalAddressLine2 = " ", internalAddressLine3 = " ";
-    String externalname = " ", externalCollegeName = " ", externalColIndex = " ", externalAddressLine1 = " ",
-            externalAddressLine2 = " ", externalAddressLine3 = " ";
-    String E1, E2, E3, E4, E5, E6, E7, E8, E9, E10, E11, E12;
+    String internalname = "", internalCollegeName = "", internalColIndex = "", internalAddressLine1 = "",
+            internalAddressLine2 = "", internalAddressLine3 = "";
+    String externalname = "", externalCollegeName = "", externalColIndex = "", externalAddressLine1 = "",
+            externalAddressLine2 = "", externalAddressLine3 = "";
+    String E01, E02, E03, E04, E05, E06, E07, E08, E09, E10, E11, E12;
     String E13, E14, E15, E16, E17, E18, E19, E20;
 
 
@@ -88,22 +88,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonExaminationDetails = findViewById(R.id.ExamDetails_button);
+        buttonExaminationDetails.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                E01 = ExamRelatedDetails.get(1);   //  Msg.Show(E13, getApplicationContext());
+                E02 = ExamRelatedDetails.get(2);   //  Msg.Show(E14, getApplicationContext());
+                E04 = ExamRelatedDetails.get(3);   //  Msg.Show(E15, getApplicationContext());
+                E04 = ExamRelatedDetails.get(4);   //  Msg.Show(E16, getApplicationContext());
+                E05 = ExamRelatedDetails.get(5);   //  Msg.Show(E17, getApplicationContext());
+                E06 = ExamRelatedDetails.get(6);   //  Msg.Show(E18, getApplicationContext());
+                E07 = ExamRelatedDetails.get(7);   //  Msg.Show(E19, getApplicationContext());
+                E08 = ExamRelatedDetails.get(8);   //  Msg.Show(E20, getApplicationContext());
+
+//              show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
+
+                FSNL.ShowExamDetails(MainActivity.this);
+//                FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19, E20);
+                examSubject = E01;          examYear = E02;         examStartDate = E03;    examEndDate = E04;
+                noExamDates = E05;          examNoOfDays = E06;     NoOfStudents = E07;     remunerationPerStudent = E08;
+            }
+
+        });
+
+
         buttonInternal = findViewById(R.id.internal_button);
         buttonInternal.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
 
-                E1 = ExamRelatedDetails.get(10);
-                E2 = ExamRelatedDetails.get(11);
-                E3 = ExamRelatedDetails.get(12);
-                E4 = ExamRelatedDetails.get(13);
-                E5 = ExamRelatedDetails.get(14);
-                E6 = ExamRelatedDetails.get(15);
+                E09 = ExamRelatedDetails.get(10);
+                E10 = ExamRelatedDetails.get(11);
+                E11 = ExamRelatedDetails.get(12);
+                E12 = ExamRelatedDetails.get(13);
+                E13 = ExamRelatedDetails.get(14);
+                E14 = ExamRelatedDetails.get(15);
 
-                FSNL.ShowInternalExaminerDetails(MainActivity.this, E1, E2, E3, E4, E5, E6);
-                internalname = E1;          internalCollegeName = E2;   internalColIndex = E3;
-                internalAddressLine1 = E4;  internalAddressLine2 = E5;  internalAddressLine3 = E6;
+                FSNL.ShowInternalExaminerDetails(MainActivity.this, E09, E10, E11, E12, E13, E14);
+                internalname = E09;          internalCollegeName = E10;   internalColIndex = E11;
+                internalAddressLine1 = E12;  internalAddressLine2 = E13;  internalAddressLine3 = E14;
 
             }
 
@@ -115,23 +140,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                E7 = ExamRelatedDetails.get(17);
-                E8 = ExamRelatedDetails.get(18);
-                E9 = ExamRelatedDetails.get(19);
-                E10 = ExamRelatedDetails.get(20);
-                E11 = ExamRelatedDetails.get(21);
-                E12 = ExamRelatedDetails.get(22);
+                E15 = ExamRelatedDetails.get(17);
+                E16 = ExamRelatedDetails.get(18);
+                E17 = ExamRelatedDetails.get(19);
+                E18 = ExamRelatedDetails.get(20);
+                E19 = ExamRelatedDetails.get(21);
+                E20 = ExamRelatedDetails.get(22);
 
 //                show(E7); show(E8); show(E9); show(E10); show(E11); show(E12);
 
-                FSNL.ShowExternalExaminerDetails(MainActivity.this, E7, E8, E9, E10, E11, E12);
-                externalname = E7;          externalCollegeName = E8;    externalColIndex = E9;
-                externalAddressLine1 = E10; externalAddressLine2 = E11;  externalAddressLine3 = E12;
+                FSNL.ShowExternalExaminerDetails(MainActivity.this, E15, E16, E17, E18, E19, E20);
+                externalname = E15;          externalCollegeName = E16;    externalColIndex = E17;
+                externalAddressLine1 = E18; externalAddressLine2 = E19;  externalAddressLine3 = E20;
             }
 
         });
 
-        buttonExaminationDetails = findViewById(R.id.ExamDetails_button);
+/*        buttonExaminationDetails = findViewById(R.id.ExamDetails_button);
         buttonExaminationDetails.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -147,13 +172,14 @@ public class MainActivity extends AppCompatActivity {
 
 //              show(E13); show(E14); show(E15); show(E16); show(E17); show(E18); show(E19);
 
-                FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19, E20);
+                FSNL.ShowExamDetails(MainActivity.this);
+//                FSNL.ShowExamDetails(MainActivity.this, E13, E14, E15, E16, E17, E18, E19, E20);
                 examSubject = E13;          examYear = E14;         examStartDate = E15;    examEndDate = E16;
                 noExamDates = E17;          examNoOfDays = E18;     NoOfStudents = E19;     remunerationPerStudent = E20;
             }
 
         });
-
+*/
         //  internal_Bill_Print
 
         PrintInternalBill = findViewById(R.id.internal_Bill_Print);

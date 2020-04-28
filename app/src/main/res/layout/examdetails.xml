@@ -47,98 +47,97 @@
                 android:hint="Subject - Up to 15 Characters"/>
 
 
-    <EditText
-        android:id="@+id/ExamYear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:maxLength="4"
-        android:background="@drawable/round_corners"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:layout_margin="3dp"
-        android:hint="Year of Examination"/>
+            <EditText
+                android:id="@+id/ExamYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:maxLength="4"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="Year of Examination"/>
 
-    <EditText
-        android:id="@+id/ExamStartDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:background="@drawable/round_corners"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:layout_margin="3dp"
-        android:hint="Start Date of Exam"/>
+            <EditText
+                android:id="@+id/ExamStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="Start Date of Exam"/>
 
-    <EditText
-        android:id="@+id/ExamEndDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:background="@drawable/round_corners"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:layout_margin="3dp"
-        android:hint="End Date of Exam"/>
+            <EditText
+                android:id="@+id/ExamEndDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="End Date of Exam"/>
 
-    <EditText
-        android:id="@+id/NoExamDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:background="@drawable/round_corners"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:layout_margin="3dp"
-        android:hint="Exam Not Conducted On"/>
+            <EditText
+                android:id="@+id/NoExamDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="Exam Not Conducted On"/>
 
-    <EditText
-        android:id="@+id/NoOfDaysOfExam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:background="@drawable/round_corners"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:layout_margin="3dp"
-        android:hint="Number of days of Exam"/>
+            <EditText
+                android:id="@+id/NoOfDaysOfExam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="Number of days of Exam"/>
 
-    <EditText
-        android:id="@+id/NoOfStudents"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:background="@drawable/round_corners"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:layout_margin="3dp"
-        android:hint="Number of Students Examined"/>
+            <EditText
+                android:id="@+id/NoOfStudents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="Number of Students Examined"/>
 
-    <EditText
-        android:id="@+id/RemPerStudent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:background="@drawable/round_corners"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        android:paddingLeft="10dp"
-        android:layout_margin="3dp"
-        android:hint="Remuneration per Student"/>
-
+            <EditText
+                android:id="@+id/RemPerStudent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:background="@drawable/round_corners"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_margin="3dp"
+                android:hint="Remuneration per Student"/>
 
     <Button
         android:id="@+id/submitButton"
