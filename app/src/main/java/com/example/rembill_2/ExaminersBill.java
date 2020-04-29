@@ -62,7 +62,7 @@ public class ExaminersBill {
     void CreateInternalPDF()
     {
         rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" +  MA.internalname + "-Internal" + ".pdf";
+        String pdfFileNameWithPath = rootDir + "/" +  MA.internalname + "-Internal.pdf";
 
         try {
             Document doc = new Document();
@@ -332,7 +332,7 @@ public class ExaminersBill {
 
     void CreateExternalPDF() {
         rootDir = Environment.getExternalStorageDirectory().getPath();
-        String pdfFileNameWithPath = rootDir + "/" + MA.externalname + "-External" + ".pdf";
+        String pdfFileNameWithPath = rootDir + "/" + MA.externalname + "-External.pdf";
 
         try {
             Document doc = new Document();

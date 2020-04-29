@@ -28,6 +28,8 @@ public class FileSaveNLoad {
     public MainActivity MA;
     public void SetMA(MainActivity MA){this.MA=MA;}
 
+    Msg msg = new Msg();
+
     public void show(String tempstring)
     {
         Toast.makeText(MA,tempstring,Toast.LENGTH_SHORT).show();
@@ -79,36 +81,6 @@ public class FileSaveNLoad {
         alert.show();
     }
 
-
-    void LoadFile(String fylenamewithpath){
-
-        try {
-
-            File myFile = new File(fylenamewithpath);
-            FileInputStream fIn = new FileInputStream(myFile);
-            BufferedReader myReader = new BufferedReader(new InputStreamReader(fIn));
-            String DataRow = "";
-
-            DataRow=myReader.readLine(); /// blank line separator
-            DataRow=myReader.readLine(); /// blank line separator
-
-//            String tempstr;
-            MA.ExamRelatedDetails.removeAll(MA.ExamRelatedDetails);
-            while ((DataRow = myReader.readLine()) != null)
-
-            {
-                MA.ExamRelatedDetails.add(DataRow);
-            }
-
-            myReader.close();
-
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(MA,e.getMessage(),Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
     void SaveToFile() {
 
@@ -193,6 +165,42 @@ public class FileSaveNLoad {
 
 //        show(" File Saved !!!");
     }
+
+
+    void LoadFile(String fylenamewithpath){
+
+        try {
+
+            File myFile = new File(fylenamewithpath);
+            FileInputStream fIn = new FileInputStream(myFile);
+            BufferedReader myReader = new BufferedReader(new InputStreamReader(fIn));
+            String DataRow = "";
+
+            DataRow=myReader.readLine(); /// blank line separator
+            DataRow=myReader.readLine(); /// blank line separator
+
+//            String tempstr;
+            MA.ExamRelatedDetails.removeAll(MA.ExamRelatedDetails);
+            while ((DataRow = myReader.readLine()) != null)
+
+            {
+                MA.ExamRelatedDetails.add(DataRow);
+            }
+
+            msg.Show(MA.ExamRelatedDetails.get(1),MA.getApplicationContext());
+
+            myReader.close();
+
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(MA,e.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+
 
     public void ShowExamDetails(Activity activity)
 //    public void ShowExamDetails(Activity activity, final String e13, final String e14, final String e15, final String e16,

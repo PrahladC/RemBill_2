@@ -304,8 +304,30 @@ public class MainActivity extends AppCompatActivity {
 
             ExamRelatedDetails.removeAll(ExamRelatedDetails);
             while ((DataRow = myReader.readLine()) != null) {
+
                 ExamRelatedDetails.add(DataRow);
             }
+
+            FSNL.examSubject = ExamRelatedDetails.get(1);
+            FSNL.examYear = ExamRelatedDetails.get(2);
+            FSNL.examStartDate = ExamRelatedDetails.get(3);
+            FSNL.examEndDate = ExamRelatedDetails.get(4);
+            FSNL.noExamDates = ExamRelatedDetails.get(5);
+            FSNL.examNoOfDays = ExamRelatedDetails.get(6);
+            FSNL.NoOfStudents = ExamRelatedDetails.get(7);
+            FSNL.remunerationPerStudent = ExamRelatedDetails.get(8);
+/*
+              examStartDate = et03.getText().toString();
+                examEndDate = et04.getText().toString();
+                noExamDates = et05.getText().toString();
+                examNoOfDays = et06.getText().toString();
+                NoOfStudents = et07.getText().toString();
+                remunerationPerStudent = et08.getText().toString();
+
+ */
+
+            msg.Show(ExamRelatedDetails.get(3),getApplicationContext());
+
 
             myReader.close();
 
