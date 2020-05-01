@@ -265,9 +265,9 @@ public class FileSaveNLoad {
         dialog.show();
     }
 
-
-    public void ShowInternalExaminerDetails(Activity activity, final String e1,final String e2, final String e3,final String e4,
-                                            final String e5, final String e6)
+    public void ShowInternalExaminerDetails(Activity activity)
+//    public void ShowInternalExaminerDetails(Activity activity, final String e1,final String e2, final String e3,final String e4,
+//                                            final String e5, final String e6)
     {
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -303,7 +303,8 @@ public class FileSaveNLoad {
             }
         });
 
-        et09.setText(e1); et10.setText(e2);  et11.setText(e3); et12.setText(e4);  et13.setText(e5); et14.setText(e6);
+        et09.setText(internalname); et10.setText(internalCollegeName);  et11.setText(internalColIndex);
+        et12.setText(internalAddressLine1);  et13.setText(internalAddressLine2); et14.setText(internalAddressLine3);
 
         dialog.show();
 
@@ -323,9 +324,9 @@ public class FileSaveNLoad {
 
     }
 
-
-    public void ShowExternalExaminerDetails(Activity activity, final String e7,final String e8, final String e9,final String e10,
-                                            final String e11, final String e12)
+    public void ShowExternalExaminerDetails(Activity activity)
+//    public void ShowExternalExaminerDetails(Activity activity, final String e7,final String e8, final String e9,final String e10,
+//                                             final String e11, final String e12)
     {
 
         final Dialog dialog = new Dialog(activity);
@@ -358,7 +359,8 @@ public class FileSaveNLoad {
             }
         });
 
-        et15.setText(e7); et16.setText(e8);  et17.setText(e9); et18.setText(e10);  et19.setText(e11); et20.setText(e12);
+        et15.setText(externalname); et16.setText(externalCollegeName);  et17.setText(externalColIndex);
+        et18.setText(externalAddressLine1);  et19.setText(externalAddressLine2); et20.setText(externalAddressLine3);
 
         dialog.show();
 

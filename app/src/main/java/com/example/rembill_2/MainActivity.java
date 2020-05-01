@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 E01 = ExamRelatedDetails.get(1);   //  Msg.Show(E13, getApplicationContext());
                 E02 = ExamRelatedDetails.get(2);   //  Msg.Show(E14, getApplicationContext());
-                E04 = ExamRelatedDetails.get(3);   //  Msg.Show(E15, getApplicationContext());
+                E03 = ExamRelatedDetails.get(3);   //  Msg.Show(E15, getApplicationContext());
                 E04 = ExamRelatedDetails.get(4);   //  Msg.Show(E16, getApplicationContext());
                 E05 = ExamRelatedDetails.get(5);   //  Msg.Show(E17, getApplicationContext());
                 E06 = ExamRelatedDetails.get(6);   //  Msg.Show(E18, getApplicationContext());
@@ -126,7 +126,8 @@ public class MainActivity extends AppCompatActivity {
                 E13 = ExamRelatedDetails.get(14);
                 E14 = ExamRelatedDetails.get(15);
 
-                FSNL.ShowInternalExaminerDetails(MainActivity.this, E09, E10, E11, E12, E13, E14);
+                FSNL.ShowInternalExaminerDetails(MainActivity.this);
+//                FSNL.ShowInternalExaminerDetails(MainActivity.this, E09, E10, E11, E12, E13, E14);
                 internalname = E09;          internalCollegeName = E10;   internalColIndex = E11;
                 internalAddressLine1 = E12;  internalAddressLine2 = E13;  internalAddressLine3 = E14;
 
@@ -149,7 +150,8 @@ public class MainActivity extends AppCompatActivity {
 
 //                show(E7); show(E8); show(E9); show(E10); show(E11); show(E12);
 
-                FSNL.ShowExternalExaminerDetails(MainActivity.this, E15, E16, E17, E18, E19, E20);
+                FSNL.ShowExternalExaminerDetails(MainActivity.this);
+//                FSNL.ShowExternalExaminerDetails(MainActivity.this, E15, E16, E17, E18, E19, E20);
                 externalname = E15;          externalCollegeName = E16;    externalColIndex = E17;
                 externalAddressLine1 = E18; externalAddressLine2 = E19;  externalAddressLine3 = E20;
             }
@@ -316,17 +318,22 @@ public class MainActivity extends AppCompatActivity {
             FSNL.examNoOfDays = ExamRelatedDetails.get(6);
             FSNL.NoOfStudents = ExamRelatedDetails.get(7);
             FSNL.remunerationPerStudent = ExamRelatedDetails.get(8);
-/*
-              examStartDate = et03.getText().toString();
-                examEndDate = et04.getText().toString();
-                noExamDates = et05.getText().toString();
-                examNoOfDays = et06.getText().toString();
-                NoOfStudents = et07.getText().toString();
-                remunerationPerStudent = et08.getText().toString();
 
- */
+            FSNL.internalname = ExamRelatedDetails.get(10);
+            FSNL.internalCollegeName = ExamRelatedDetails.get(11);
+            FSNL.internalColIndex = ExamRelatedDetails.get(12);
+            FSNL.internalAddressLine1 = ExamRelatedDetails.get(13);
+            FSNL.internalAddressLine2 = ExamRelatedDetails.get(14);
+            FSNL.internalAddressLine3 = ExamRelatedDetails.get(15);
 
-            msg.Show(ExamRelatedDetails.get(3),getApplicationContext());
+            FSNL.externalname = ExamRelatedDetails.get(17);
+            FSNL.externalCollegeName = ExamRelatedDetails.get(18);
+            FSNL.externalColIndex = ExamRelatedDetails.get(19);
+            FSNL.externalAddressLine1 = ExamRelatedDetails.get(20);
+            FSNL.externalAddressLine2 = ExamRelatedDetails.get(21);
+            FSNL.externalAddressLine3 = ExamRelatedDetails.get(22);
+
+//            msg.Show(ExamRelatedDetails.get(3),getApplicationContext());
 
 
             myReader.close();
